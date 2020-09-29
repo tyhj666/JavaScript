@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //   let String = new String("dhucms.com");
+
+    //以对象的形式创建函数
+    // let func = new Function("title","console.log(title)");
+    // func("lfk");
+
+
+    //以子面量的形式创建函数
+    // function hd (title){
+    //     console.log(title);   
+    // }
+    // hd("lfk");
+
+
+    // let cms = function(title){
+    //     console.log(title);
+    // };
+    // cms("lfk");
+
+    let user = {
+        name:null,
+        // setUsername: function(name){
+        //     this.name = name;
+        // },
+        //上面三行可以简写为如下格式
+        setUsername(){
+            this.name = name;
+        },
+        getUsername: function(){
+            return this.name;
+        }
+    };
+    user.setUsername('lfk');
+    console.log(user.getUsername());
+    
+    </script>
+</body>
+</html>

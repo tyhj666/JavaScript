@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //当定义的字符是用双引号括起来的时候，换行的时候需要用\来转义，当时用``引的时候，换行的时候不报错
+       let hd=new String("lf\
+       k");
+       let sc=`lf
+       k`;
+       //转义符号\
+       let ss="houdu\""
+       let cc=`sc.${ss}`;
+       console.log(cc);
+    </script>
+</body>
+</html>

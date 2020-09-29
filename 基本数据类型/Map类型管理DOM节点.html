@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div name="后盾人">houdunren.ocm</div>
+    <div name="开源">hdcms.com</div>
+    <script>
+        let map = new Map();
+        // 这里的div是对象，不是字符串
+        document.querySelectorAll('div').forEach(item => {
+            // map.set(item);
+            map.set(item,{
+                content:item.getAttribute("name")
+            });
+        })
+        console.log(map);
+        
+        map.forEach((config,elem) => {
+            elem.addEventListener('click', () => {
+                alert(config.content);
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //可以让值永远是唯一的，Symbol永远是唯一的，不肯能有相同的值
+       let hd = Symbol("我是hdSymbol");
+       let hdf = Symbol("我是hdSymbol");
+       //上面两个定义不是相同的定义方法，只有Symbol.for定义的才是两个完全相同的
+       hd.name = '后盾人';//Symbol对象不能给里面添加属性
+       let edu = Symbol();
+       console.log(hd===edu);
+       console.log(hd.description);//获取Symbol的描述
+    //    let cms =Symbol.for("hdcms") //全局定义
+    //    let edu =Symbol.for("hdcms")
+    //    //上面两行比较的时候返回的是true，当一个Symbol要重复使用的时候，可以使用Symbol.for来定义
+    //    console.log(cms);
+    //用Symbol.for定义的Symbol对象，可以使用Symbol.keyFor来获取描述,但是普通的定义方法，不能使用keyFor来获取描述
+       
+       
+    </script>
+</body>
+</html>

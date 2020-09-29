@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>hdcms</button>
+    <button>houdunren</button>
+    <script>
+        //call apply
+      let arr = [1,2,3,4,5];
+      console.log(Math.max.apply(Math,arr));//这个地方是求arr的最大值，之所以用apply是因为它的参数是数组，而call的参数是字符串，所有用不成
+      
+
+        function show (){
+            alert(this.innerHTML);
+        }
+        let buttons = document.querySelectorAll("button");
+        for(let i=0; i<buttons.length;i++){
+            buttons[i].addEventListener("click",event =>{
+                // show.call(this) 这个地方this指向的是windows
+                show.call(event.target);//这个地方来改变show方法里面this的值，call可以换成apply
+            })
+        }
+        let lisi = {
+            name:'李四'
+        }
+
+        let wangwu = {
+            name:'王五'
+        }
+
+        // function User(){//创建一个user对象
+        //     console.log(this.name);  
+        // }
+        // User.call(lisi);//这个函数会立即执行
+
+
+
+        function User(web,url){
+            console.log(web + url + this.name);
+        }
+
+        //call 和apply的共同点是立刻执行，不同点是call传的参数是一个一个的字符串，而apply的参数是一个数组
+        User.call(lisi,"后盾人","houdunren.com");
+        User.apply(lisi,["后盾人", "houdunren.com"]);
+    </script>
+</body>
+</html>

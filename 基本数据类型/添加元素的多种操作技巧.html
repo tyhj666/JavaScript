@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let array = ["hdcms", "houdunren"];
+       array[array.length] = "cms";
+       console.log(array);
+
+       //两个数组的合并
+       let hd = ["shop", "cms"];
+
+       array = [...array,...hd];//把hd数组添加到array数组中
+       console.log(array);
+       
+       //给数组里面添加元素,推荐使用
+       array.push("shop","lfk");
+       arry.push(...hd);//这种写法相当于array.push("shop","cms")
+       
+    </script>
+</body>
+</html>

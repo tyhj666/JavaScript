@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const hd = "houdunren.com";
+        //查询0第一次出现的位置,叫第二个参数表示从第几个字符开始查找，
+        //当找不到对应的字符所在的位置时，返回的值是-1
+        console.log(hd.indexOf("o"));
+        //返回的是boolean类型，第二个参数表示从第几个开始查询
+        console.log(hd.includes("h"));
+        //表示从右边开始查找
+        console.log(hd.lastIndexOf("0"));
+        //表示某个字符串是否以某个字符开始，区分大小写
+        console.log(hd.startsWith("q"));
+        //是否以某个字符结尾
+        console.log(hd.endsWith("m"));
+        
+    </script>
+</body>
+</html>

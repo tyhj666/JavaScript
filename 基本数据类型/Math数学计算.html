@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       Math.max(1.2,3)
+       Math.min(1.2,3)
+       let  grade=[1,5,8,3,9]
+       Math.max(grade)//这种写法报错，这个函数不支持数组，换成下面的写法
+       Math.max.apply(null,grade)// 这种写法不报错
+       Math.ceil()//向上取整
+       Math.floor()//向下取整
+       Math.round()// 取整
+    </script>
+</body>
+</html>

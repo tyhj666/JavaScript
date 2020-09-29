@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //   let grade = {
+        //       '李四':{js:100,css:89},
+        //       '李四':{js:35,css:55},
+        //   };
+        //   console.log(grade); //这样只会打印一个李四，因为key是重复的
+
+
+        // let user1 = "李四";
+        // let user2 = "李四";
+        // let grade = {
+        //     user1:{js:100,css:89},
+        //     user1:{js:35,css:55}
+        //   };
+        //   console.log(grade);//这个地方打印grade的时候，key还是user1,并不是李四，要让显示李四，要给变量写上[]
+          
+
+
+        //解决当key同名时，控制台打印其中一个的问题
+         let user1 = {
+             name: '李四',
+             key: Symbol()
+         };
+
+         let user2 = {
+             name: '李四',
+             key: Symbol()
+         };
+
+         let grade = {
+             [user1.key]: {js:100, css: 89},
+             [user2.key]: {js:35, css: 55},
+         };
+
+         console.log(grade);
+         console.log(grade[user1.key]);
+         
+  
+          
+          
+    </script>
+</body>
+</html>

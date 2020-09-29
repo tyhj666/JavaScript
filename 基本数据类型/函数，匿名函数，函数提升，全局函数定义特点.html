@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function hd(){
+        //     console.log("lfk");    
+        // }
+
+        //用var定义的属性会压到window里面，但是用let定义的属性不会压到windows里面
+        // var cms = function() {
+        //     console.log("lfk");   
+        // };
+        // cms();
+        // window.cms();
+
+
+
+        //匿名函数  把匿名函数复制给一个变量，调用匿名函数的时候直接用变量调用
+        // let hd = function (){} 这种定义函数的方法不会进行函数提升
+
+       //这个地方先调用函数，后定义函数不报错是因为函数提升了，就是把定义函数提升到调用前面了
+        // show();
+        // function show() {
+        //     console.log("lfk");  
+        // }
+
+
+
+
+        //如下定义函数的顺序会输出英文的houdunren.com
+        // hd();
+        // function hd (){
+        //     console.log("hodunren.com");
+        // }
+        // var hd = function(){
+        //     console.log("后盾人");
+            
+        // }
+
+
+
+        //如下函数的顺序会输出中文后盾人
+        // function hd (){
+        //     console.log("hodunren.com");
+        // }
+        // var hd = function(){
+        //     console.log("后盾人");
+            
+        // }
+        // hd();
+
+
+
+
+
+    </script>
+</body>
+</html>

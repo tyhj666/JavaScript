@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>hdcms</div>
+    <div>houdunren</div>
+    <script>
+
+// 数组的from方法有第二个参数，第二个参数是访问数组里面的每一个元素
+       let divs = document.querySelectorAll("div");
+       console.log(
+
+           Array.from(divs,function(item){
+               console.log(item.innerHTML); 
+           })
+       );
+       
+    //  console.log(Array.isArray());//检测变量是否为数组
+    //  console.log([1,2,3].toString());//把数组转换为字符串
+    //  String([2,3,4])// 把数组转换为字符串
+     let he = [1,3,4].join("|");
+     console.log(location.href + "?id=" + he);
+
+     let str = "hd,cms";
+     console.log(str.split(",")); //把字符串拆分成数组
+     console.log(Array.from(str));// 把字符串拆分成数组，有length属性的数据类型都可以使用这个方法
+     
+     let obj = {
+         a:"hdbc",
+         c: "lfk",
+         length:2
+     }
+    console.log(Array.from(obj));//上面的obj方法要使用这个方法，需要在里面加一个length属性才可以,并且key的值必须是数字
+    
+     
+     
+    </script>
+</body>
+</html>

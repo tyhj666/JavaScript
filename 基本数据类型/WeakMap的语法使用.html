@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //WeakMap里面的键必须是对象/引用类型
+    // let arr = [];
+    // let map = new WeakMap();
+    // map.set(arr,"hdcms.com");
+    // map.delete(arr);//删除key
+    // map.has(arr);//判断某个key是否存在
+    // //弱引用类型,map.keys(),values,entries()用不了
+    // console.log(map);
+    
+
+
+    //弱引用类型体验
+    let hd = {name:'后盾人'};
+    let map =new WeakMap();
+    cms = hd;
+    map.set(hd,"houdunren.com");
+    hd = null;
+    cms = null;
+    console.log(map);
+    setTimeout(function(){
+        console.log(map);  
+    },5000);
+    
+    </script>
+</body>
+</html>

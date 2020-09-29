@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Cache{
+            static data = {};
+            static set(name,value){
+              return   (this.data[name] =value);
+            };
+            static get(name){
+                return this.data[name];
+            };
+        }
+
+        // Cache.set('hdcms', 'houdunren.com');
+        // console.log(Cache.get('hdcms'));
+        
+
+        //下面这种写法，只能打印后面set的值，不能打印确切的某一个对象的值
+
+
+        // let user = {
+        //     name: "apple",
+        //     desc:"描述",
+        // };
+
+        // let cart = {
+        //     name : "apple",
+        //     desc:"购物车"
+        // };
+
+        // Cache.set('apple',cart);
+        // Cache.set('apple',user);
+        // console.log(Cache.get('apple'));
+
+
+        //解决上面的问题方法
+        let user = {
+            name: "apple",
+            desc:"描述",
+            key:Symbol()
+        };
+
+        let cart = {
+            name : "apple",
+            desc:"购物车",
+            key:Symbol()
+        };
+
+        Cache.set(cart.key,cart);
+        Cache.set(user.key,user);
+        console.log(Cache.get(cart.key));
+        console.log(Cache.get(user.key));
+        
+    </script>
+</body>
+</html>

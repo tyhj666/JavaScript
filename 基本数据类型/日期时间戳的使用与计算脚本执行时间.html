@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const date = new Date();
+        console.log(date);
+        console.log(typeof date);// object
+        console.log(date * 1); //返回的是时间戳
+        
+        const hd = Date();
+        console.log(hd);
+        console.log(typeof hd); //string
+        console.log(hd * 1); //返回的是NaN
+        
+        const date1 = Date.now();//返回时间戳
+        console.log(date1);
+
+        console.time('for') //标注开始时间
+        console.timeEnd("for")//标注结束时间
+
+        const date2 = new Date("1990-9-22 3:22:18")
+        console.log(date);
+        console.log(date.getMonth());
+
+        const date3 = new Date(1990,2,22,13,22,19);
+        console.log(date3);
+        
+        const param = [1990,2,22,13,22,19];
+        const date4 = new Date(...param);//...param的作用是把上面的变成单个的数值
+        console.log(date3);
+
+        //将时间转换为时间戳的方法
+        const date5 = new Date("1997-7-12 08:22:12");
+        console.log(date5 * 1);
+        console.log(Number(date));
+        console.log(date5.valueOf());
+        console.log(date5.getTime());
+
+        //把时间戳转换为时间
+       // console.log(new Date(timestamp));
+
+
+        date5.getFullYear()//获取年
+        date5.getMonth()//月
+        date5.getDate()//日
+        date5.getHours()//时
+        date5.getMinutes() //分      
+        date5.getSeconds()//秒
+        
+        function dateFormat(date2,format = "YYYY-MM-DD HH:mm:ss"){
+            const config ={
+               YYYY:date.getFullYear(),
+                MM: date.getMonth(),
+                DD: date.getDate(),
+                HH: date.getHours(),
+                mm: date.getMinutes(),
+                ss: date.getSeconds()
+            };
+            for (const key in config) {
+                console.log("key="+key + "config[key]=" + config[key]);
+                
+                format = format.replace(key, config[key]);
+            }
+            return format;
+        }
+
+        dateFormat(date2,"YYYY-MM-DD HH:mm:ss");
+        
+        
+        
+        
+        
+
+    </script>
+</body>
+</html>

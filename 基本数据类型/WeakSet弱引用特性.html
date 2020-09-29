@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let set = new WeakSet();
+    let hd = {name: "后盾人"};
+    let edu = hd;
+    
+    
+    set.add(hd);//这种方式是弱引用，当把hd和edu都赋值为null时，系统会直接把hd回收掉，但是不通知WeakSet,这是WeakSet认为自己里面还有值
+    hd = null;
+    edu = null;
+    console.log(set);
+    
+    
+    
+    </script>
+</body>
+</html>

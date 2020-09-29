@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    let array = ["hdcms", "houdunren"];
+    //    let vars = array.pop();//从数组后面删除一个值，并且返回删除的值
+    //    console.log(vars);
+    //    console.table(array);
+
+    //    array.unshift("后盾人");// 这个是从数组的前面增加，返回的是增加后数组的总长度
+    //    array.shift();//从数组的前面删除一个元素，并且返回删除的元素
+    //    Array(5).fill("lfk");// Array(5)创建了5个空元素.fill把这5个空元素用lfk填充
+    //    console.log([1,2,3,4].fill("后盾人",1,3));//执行的结果是[1,后盾人，后盾人，4]
+
+
+       let center = [1,3,4,5];
+
+        //slice
+    //    console.log(center.slice(1,2));//从第一个元素开始截取，截取到第二个元素停止，截取之后，原来的数组是不变的
+       
+       //splice
+    //    let hd = center.splice(0,3)//表示从第0个元素开始截取，截取3个元素，原来的数组也会发生改变，相当于删除
+
+       center.splice(1,2,"后盾人")//返回的结果是[1,"后盾人",5]
+       center.splice(1,1,"后盾人")//返回的结果是[1,"后盾人",4,5]   表示把第一个元素替换为后盾人，也可以理解为把第一个删除，然后再添加后盾人
+        console.log(center);
+        
+    //    center.splice(1,0,"后盾人")//返回的结果是[1,"后盾人",3,4,5]   表示给第一个元素后面增加后盾人，第二个参数0表示
+       console.error("")//是在控制台打印错误
+
+
+       //every  当有一个地方返回false时，就不会输出后面的元素了
+       let arr = ["hdcms", "houdunren"];
+       arr.every(function(value, index, arr){
+           console.log(arr);
+           console.log(value);
+           console.log(index);
+           return false;   
+       })
+
+       // some 如果有任何一个返回真，后面的就不用判断了
+    </script>
+</body>
+</html>

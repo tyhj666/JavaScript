@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let hd = {name:'houndunren'};
+       let edu = hd;
+       hd = null;//用来删除对象里面的数据
+       console.log(edu);//这个时候edu还有值
+       console.log(hd);
+       
+        //   let edu = hd;
+        //   hd = null;
+        //   edu = null;
+        //   console.log(edu);// 这个时候，hd没有任何对象引用，相当于垃圾，系统会检测到并收回
+          
+
+    </script>
+</body>
+</html>

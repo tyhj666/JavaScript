@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组的展开语法
+     let arr = ["hdcms","houdunren"];
+     let hd = ["js","css"];
+     arr = [...arr,...hd]//这里面的...表示把数组元素展开并赋值到...arr所在的位置
+
+     function sum (...args){//展开语法的写法
+         console.log(args);//这个地方打印的args是一个数组
+         
+     }
+     sum (1,2);
+     
+    </script>
+</body>
+</html>

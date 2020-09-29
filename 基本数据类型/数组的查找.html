@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      let arr = [1,2,3,4];
+      arr.indexOf(2); // 返回元素所在的索引位置
+      arr.indexOf(2,3); // 返回元素所在的索引位置,表示从第三个元素开始往后找2这个元素
+      arr.lastIndexOf(3);//从右侧开始找，如果是字符串，会找不到
+      arr.includes(3);//返回的是boolean值
+      arr.find(function(item){
+          return item ===2;
+      })
+
+    //引用类型的查找不能使用includes,要用find
+      let lessons = [
+           {name: "js"},
+           {name: "css"},
+           {name: "java"}
+      ];
+
+      //find返回的是查到的元素值
+      lessons.findIndex()//返回的是查到的元素的索引值
+      let status = lessons.find(function(item){
+          return item.name === "css";
+      })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       li {
+           list-style: none;
+       }
+    </style>
+</head>
+<body>
+    <ul>
+            <li>hdcms.com<a href="javascript:;">x</a></li>
+            <li>houdunwang.com<a href="javascript:;">x</a></li>
+    </ul>
+    <script>
+        class Todo{
+            constructor(){
+                this.items = document.querySelectorAll("ul>li");
+                // console.log(this.items);   
+                this.lists = new WeakSet();
+                this.items.forEach(item => {
+                    this.lists.add(item)
+                });
+                console.log(this.lists);   
+            }
+
+
+            run(){
+                this.addEvent();
+            }
+            addEvent(){
+                this.items.forEach(item => {
+                 let a = item.querySelector("a");
+                //  console.log(a); 
+                a.addEventListener('click',event => {
+                    //event.target表示的是a元素
+                    const parentElement = event.target.parentElement;
+                    // console.log(parentElement);
+                    if (this.lists.has(parentElement)) {
+                        parentElement.classList.add("remove");
+                        this.lists.delete(parentElement);
+                    }else{
+                        parentElement.classList.remove("remove");
+                        this.lists.add(parentElement);
+                    }
+                })
+                })
+            }
+        }
+
+        new Todo().run();
+    </script>
+</body>
+</html>

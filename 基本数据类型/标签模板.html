@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    let name="后盾人";
+    //    let web="houdunren.com";
+    //    console.log(tag`在线教程${name},网址是${web}`);
+    //    function tag(strings,...vars){
+    //        console.log(vars+"是");
+           
+    //        console.log(strings);
+           
+    //    }
+    let lessons=[
+           {title: "媒体查询", author:"1"},
+           {title: "FLEX弹性盒模型",author:"2"},
+           {title: "媒体查询3",author:"3"}
+       ];
+
+       function template(){
+           return `
+           <ul>
+             ${
+            lessons
+            .map(
+                item=>
+             links `<li>作者:${item.author},课程:${item.title}`
+             ).join("")}
+           </ul>
+           `
+       }
+       function links(strings,...vars){
+            return strings
+            .map((str,key) => {
+                //这个地方如果三目表达式不加括号，li会失效，是优先级导致的
+                return str + (vars[key] ? vars[key]:"");
+            }).join("");
+       }
+       document.body.innerHTML=template();
+    </script>
+</body>
+</html>

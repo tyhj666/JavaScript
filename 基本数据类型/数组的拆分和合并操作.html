@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      let str = "hdcms,houdunren";
+      console.log(str.split(","));//将字符串拆分成数组
+      let hd = str.split(",");
+      hd.join("-")//将数组合并成字符串
+      
+
+      let arr = ["hdcms", "houdunren"];
+      let hs = [1,2,3,4];
+      arr = arr.concat(hs); //把hs合并到arr的后面
+      console.log(arr);
+
+      // 数组元素的复制
+      let hd = [1,3,4,5];
+      console.log(hd.copyWithin(2,0,2));//复制到第二个元素的后面，从第0个元素开始，复制到第二个元素结束
+      
+      
+    </script>
+</body>
+</html>

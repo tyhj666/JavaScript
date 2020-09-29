@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <script>
+        // //weakSet的参数必须是引用类型
+        //  let set = new WeakSet()
+        // //  let set = new (["hdcms","houdunren"]);  这种写法会报错，是因为这种写法相对于增加了两个字符串
+        // set.add(["hdcms", "houdunren"]);//这种写法是正确的，因为这种写法是往里面添加了一个数组
+
+
+        let nodes = new WeakSet();
+      let divs =  document.querySelectorAll("div");
+      divs.forEach(function(item){
+            nodes.add(item);
+        });
+        nodes.delete(divs[0]);
+        nodes.has(divs[0]);//判断是否有
+        nodes.delete(divs[1]);
+        console.log(nodes);
+        
+    </script>
+</body>
+</html>

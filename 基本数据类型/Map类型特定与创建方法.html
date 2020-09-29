@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    let obj ={//这个地方1和“1”是一样的作用，都是字符串，而且当key一样时，对象默认取后面的
+    //        name: "hdcms.com",
+    //        1:"hhh",
+    //        "1":"ffff"
+    //    };
+    //    console.log(obj);
+
+// 注意，对象中的key只能是字符串
+
+    // let obj = {
+    //     name:"houdunren.com"
+    // };
+    // let hd = {
+    //     [obj]:"后盾人"
+    // }
+    // console.log(hd);
+    // console.log(hd[obj.toString()]); 
+    // console.log(hd["[object Object]"]);
+    
+
+
+    // Map
+    // let map = new Map();
+    // map.set("name","后盾人");//字符串作为键名
+    // map.set(function(){},"hdcms");//函数作为键名
+    // map.set({},"houdunren");//对象作为键名
+    // map.set(1,"sina.com.cn")//数值作为键名
+    // console.log(map);
+
+
+    // let map = new Map(
+    //     [
+    //         ["hdcms","开源系统"],
+    //         ["houdunren", "在线教程"]
+    //     ]
+    //     );
+    //     map.set("name", "sina").set("site", "后盾人");
+    //     console.log(map);
+
+
+    //map类型的增删改查
+    // let obj = {
+    //     name: "后盾人"
+    // };
+
+    // let map = new Map();
+    // map.set(obj,'houdunren.com');
+    // console.log(map.get(obj));
+    //  map.has("key值")
+    // 删除map里面的元素，返回的是boolean类型
+    // map.delete(obj);
+    // map.clear();//清空里面的所有元素，没有返回值
+        
+    //遍历map类型
+    // let hd = new Map([
+    //     ["houdunren", "后盾人"],
+    //     ["hdcms", "开源系统"]
+    // ]);
+    // hd.set("name", "在线教程")
+    // console.log(hd.values());//获取key所对应的值
+    // console.log(hd.entries());//获取键值对
+    
+    //循环获取所以的键
+//     for (const key of hd.keys()) {
+//         console.log(key);  
+//     }
+ 
+//    //循环获取所有的值
+//     for (const value of hd.values()) {
+//         console.log(value);   
+//     }
+
+//     //循环获取键和值
+//     for (const [key, value] of hd.entries()) {
+//         console.log(key,value);  
+//     }
+
+//     //循环获取键和值
+//     hd.forEach(function(value,key){
+//         console.log("key="+key);
+//         console.log("value="+value);
+//     })
+
+
+
+//map类型转换操作
+let hd = new Map([
+        ["houdunren", "后盾人"],
+        ["hdcms", "开源系统"]
+    ]);
+    hd.set("name", "在线教程")
+
+   //map类型转换为数组
+//    console.log(...hd);
+//    console.log([...hd]);
+//    console.log([...hd.keys()]);  //单独转换键
+//    console.log([...hd.values()]);//单独转换值
+//    console.log([...hd.entries()]);
+//    for (const [key,value] of hd) {//forof用的是entries方法
+//        console.log(key,vlalue); 
+//    }
+
+//    for (const [key,value] of hd) {//forof用的是entries方法
+//        console.log(key,value); 
+//    }
+
+   let newArr =[...hd].filter(function(item){
+       return item[1].includes("后盾人")
+   });
+   console.log(newArr);
+   
+   let edu = new Map(newArr);
+   console.log(typeof [...edu]);
+   
+   
+   
+   
+
+   
+   
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let hd = [1,2,3,4,5];
+        //第一种和第二种的区别在于当把数组赋值给另一个数组是，
+        //第一种方法会从新开辟一个新的空间，不会改变原来的数据，第二种是在原来的数组空间操作
+        //清空数组的第一种方法
+        hd = [];
+        //清空数组的第二种方法
+        hd.length = 0;
+        // 清空数组的第三种方法
+        hd.splice(0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return post()">
+        接受协议:
+        <input type="checkbox" name="agreement" error="请接受协议" />
+        <input type="checkbox" name="student" error="网站只对学生开放" />
+        <input type="submit" />
+    </form>
+    <script>
+          function post(){
+              let map = new Map();
+              let inputs = document.querySelectorAll("[error]");
+              inputs.forEach(item => {
+                  map.set(item,{
+                      error:item.getAttribute('error'),
+                      status:item.checked
+                  });
+              });
+            //   console.log([...map]);
+              
+           return   [...map].every(function([elem,config]){//[elem,config]这个地方的参数使用了结构特性
+                //   console.log(elem,config);
+                config.status || alert(config.error);
+                return config.status;    
+              })
+            //   console.log(map); 
+            //   return false;
+          }
+    </script>
+</body>
+</html>

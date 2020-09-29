@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr = [1,2,3,4,5];
+        // //reduce方法的第二个参数是pre的初始值
+        // // pre表示上一次返回的值,刚开始的时候，pre的值如果没有给默认值，则就是数组第一个元素的值，value是数组元素的值
+        // arr.reduce(function(pre, value, index, array){
+        //     console.log(pre, value);
+            
+        // })
+
+        // arr.reduce(function(pre, value, index, arr){
+        //     console.warn(pre,value);
+        //     return 99;
+        // },0);//这个地方的0是给pre赋初始值
+
+        // let arr = [1.2,3,1,1];
+        // function arrayCount(array, item){
+        //  return   array.reduce(function(total, cur){
+        //         total += item ==cur ? 1:0;
+        //         return total;
+        //     },0)
+        // }
+        // console.log(arrayCount(arr,1));
+        
+
+        // let arr = [1,2,3,5,2];
+        // function arrayMax(array){
+        //   return  array.reduce(function(pre, cur){
+        //         return pre > cur?pre:cur
+        //     });
+        // }
+        // console.log(arrayMax(arr));
+
+        let cart = [
+            {name:"iphone", price:11200},
+            {name:"imac", price:12500},
+            {name:"ipad", price:3600},
+        ];
+
+        // function maxPrice (goods){
+        //     return cart.reduce(function(pre, cur){
+        //         return pre.price > cur.price ?pre : cur;
+        //     });
+        // }
+        // console.log(maxPrice(cart));
+
+
+        //获取商品超过10000的商品名称
+        function getNameByPriece (goods,price){
+           return  goods.reduce( function (arr,cur){
+                if(cur.price > price ) arr.push(cur);
+                return arr;
+            },[]).map(function(item){
+                return item.name
+            });
+        }
+        console.table(getNameByPriece(cart,10000));
+
+
+
+        //数组去除重复
+        let arr = [1,2,3,3,1,4,2];
+      let newArr =  arr.reduce(function(arr,cur){
+          if (arr.includes(cur) === false){
+              arr.push(cur);
+          }
+          return arr;
+      },[]);
+     console.table(newArr)
+      
+        
+        
+    </script>
+</body>
+</html>

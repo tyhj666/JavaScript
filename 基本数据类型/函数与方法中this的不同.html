@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>houdunren.com</button>
+    <button>hdcms.com</button>
+    <script>
+
+    //    let Dom = {
+    //        site:"后盾人",
+            //   handleEvent: function( event){//因为这个方法是属性方法，所以里面的this指的是对象实例
+            //          console.log(this.site + event.target.innerHTML);
+                     
+            //   }
+    //        bind(){
+    //            const button = document.querySelector("button");
+    //         //    console.log(button);
+    //            button.addEventListener('click',function(){//这个地方用箭头函数的时候，下面的this指的是Dom这个对象
+    //                console.log(this);  //这个this指当前按钮这个对象 
+    //            })
+    //            //上面的写法相对于下面的这种写法
+    //         //    button.onclick = function (){//这个地方的函数就变成了对象的属性，所以this指当前对象的引用
+    //         //        console.log(this); 
+    //         //    }
+    //        }
+    //    }
+    //    Dom.bind();
+
+
+
+    //当body里面有多个按钮时，箭头函数的this指的是父级作用域的this，普通函数的this指的是window对象的this
+    // let Dom = {
+    //        site:"后盾人",
+    //        handleEvent:function(event){
+    //            console.log(this.site + event.target.innerHTML);
+    //        },
+    //        bind(){
+    //            const buttons = document.querySelectorAll("button");
+    //         //   console.log(buttons.length);  
+    //         buttons.forEach(function(elem){
+    //             console.log(this);//这个地方的this也是windows对象，如果改成箭头函数，this指向的是上级（父级）作用域的对象，
+                
+    //            elem.addEventListener('click',function(){//这个地方如果改成箭头 函数是，下面的this就是window对象，因为this就是上下文，就是父级作用域的this
+    //                console.log(this);
+                   
+    //            });
+    //         })
+    //        }
+    //    }
+    //    Dom.bind();
+    
+    
+
+
+
+        //this
+        //如果函数是类的属性方法，则this是当前对象，如果是一个普通函数，则this是window对象
+        // let obj ={
+        //     name:"后盾人",
+        //     show:function(){//这个方法是对象属性
+        //         function render(){//这是一个普通的函数
+        //           console.log(this);//这个地方打印的是window对象
+                  
+        //         }
+        //         render();
+        //         console.log(this);
+                
+        //         return obj.name//这个地方obj可以写出this,代表当前对象的引用
+        //     }
+        // };
+        // console.log(obj.show());
+
+
+
+        // function User(){
+        //     this.name=name;
+        //     this.show=function(){
+        //         return this.name;
+        //     }
+        // }
+
+        // let lisi = new User("李四");
+        // console.log(lisi.show());
+        
+        //全局对象windows对象，在全局环境下,this就是windows
+
+
+        // let lesson ={
+        //     site:"后盾人",
+        //     lists:["js","css","mysql"],
+        //     show:function(){//这个地方把函数赋值给了属性
+        //     //   console.log(this);
+        //     //   console.log(this.site);
+        //     //   console.log(this.lists);
+        //     const self =this;//这个是解决普通方法里面无法访问当前对象的this的办法
+        //     return this.lists.map(
+        //         function(value){//这个地方的function是一个普通函数，并不是类方法，所以this指的是windows对象，并不能取到对象的this
+        //         //   console.log(self);
+        //           return `${self.site}-${value}`;
+        //     },this)//map有第二个参数，这个this表示当前对象的引用
+        //     }
+        // };
+        // console.table(lesson.show());
+
+
+
+        //箭头函数带来的this变化实例
+        // let lesson ={
+        //     site:"后盾人",
+        //     lists:["js","css","mysql"],
+        //     show:function(){//这个地方把函数赋值给了属性
+        //     return this.lists.map(
+        //         title => {
+        //             console.log(title);
+        //             console.log(this);//当换成箭头函数之后，这个this指的是父级作用域的this,也是上下文的意思  
+        //         }
+        //     )
+        //     }
+        // };
+        // console.table(lesson.show());
+
+
+
+
+
+        //this的构造原理实现
+        function User(name){
+            this.name = name;
+        }
+
+        let lisi = new User('李四');
+        console.log(lisi);
+        let hdcms = {url:"hdcms.com"};
+
+        //调用构造函数,调用call之前，User创建的实例对象里面的this都是空的
+        //下面的这个call用来改变this的,第一个参数是赋值，第二个参数是改变name的参数
+        User.call(hdcms,'开源系统');
+        
+        
+
+        
+        
+    </script>
+</body>
+</html>

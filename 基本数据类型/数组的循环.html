@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let lessons = [
+           {title: "媒体查询响应式布局",category:"css"},
+           {title: "FLEX应式布局",category:"css"},
+           {title: "MYSQL多表查询",category:"mysql"}
+       ]
+
+       for (const value of lessons) {
+           value.title=`后盾人${value.title}`;
+       }
+
+      //for of 
+       let arrs = [1,2,3];
+       for (const arr of arrs) {
+            //这个地方因为数组的每一个元素是值类型，在赋值的时候，不会再原来的元素上面赋值，会开辟一块新的空间进行赋值
+            //如果数组里面的元素是引用类型，怎在修改值的时候是在原来的对象上面修改的
+            arr += 10;
+       }
+
+       // forEach 可以操作元素，也可以操作dom节点
+       lessons.forEach(function(item, index, lessons){
+            
+       });
+
+       //数组的迭代器
+       let arr = ["1","lfk","bj"];
+       let keys = arr.keys();
+       let {value, done} = keys.next();
+       let values = arr.values();
+        //  {value, done} = values.next() 
+       console.log(value, done);
+
+       let entries = arr.entries();
+       let {done, value} = entries.next();
+       for (const [key, value] of arr.entries()){
+           console.log(value);
+           
+       }
+
+
+    </script>
+</body>
+</html>

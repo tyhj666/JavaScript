@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     let array = [["lfk"],["123","456"]]
+     //当我们给数组定义了第一个元素，接着定义了第三个元素，中间的
+     //第二个和第三个都没有定义，此时会默认定义为undefinded
+     let hd = ["hdcms"];
+     hd[3] = "lfk";
+     console.log(hd[2]);
+
+
+     let cms = new Array(6)//表示创建了一个6个元素的数组，这些元素的值都是undefined
+
+     // 解决上面的方法
+     let arr = Array.of(6) // 这个表示创建了一个元素，值是6
+     console.table(arr);
+     
+
+     
+    </script>
+</body>
+</html>

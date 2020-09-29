@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let  set = new Set();
+        // set.add(1);
+        //set.add(1); set的值不能重复
+
+        // let set =new Set ([1,2,3,4,5])
+        //  console.log(set);
+
+        //在对象里面，属性名都是字符串，但是在set集合中，属性key的数值和字符串是两个不同的值
+         
+        // let set = new Set('hdcms','houdunren'); //这种写法等价于let set = new Set([..."hdcms"])
+        // let set = new Set(['hdcms','houdunren']);
+        // console.log(set);
+        // console.log(set.size);//获取set集合里面的元素个数
+        // console.log(set.has("hdcms"));
+        // // console.log(set.delete("hdcms"));// 删除集合里面的元素
+        // console.log(set.values());//看具体的元素值
+        // console.log(set.clear());//清空集合
+        
+        // //set集合类型转换
+        // let set = new Set(['hdcms','houndunren']);
+        // //set集合转换为数组的第一种方法
+        // console.log(Array.from(set));
+
+        // //set集合转换为数组的第二种方式
+        // console.log([...set]);
+
+        // let hd = new Set("123456789");
+        // // console.log(hd);
+        // // let arr = [...hd].filter(function(item){
+        // //       return item < 5
+        // // });
+
+        // //上面三行可以简写为如下形式
+        // let arr = new Set([...hd].filter(item =>  item < 5));
+
+        //    console.log(hd); 
+        //    console.log(arr);
+        
+
+         //取出重复的值
+        // let array = [1,2,"3",4,5,2,3,1];
+    //     console.log(new Set(array));
+    //   let   arr = [...new Set(array)];
+    //   console.log(arr);
+      
+
+      //set集合的遍历
+    //   let arr = new Set(array);
+    //   console.log(arr.keys());
+    //   console.log(arr.entries());
+
+    //set集合的第一种遍历方法
+    // let set = new Set(["hdcms","houdunren"]);
+    // set.forEach(function(value, key, arr){
+    //     console.log(arr);   
+    // });
+
+    // //set集合的第二种遍历方法,forof，是操作set.values的迭代对象
+    // for (const value of set) {
+    //     console.log(value);  
+    // }
+
+
+    //set集合的交差并补
+    let a = new Set([1,2,3,4,5]);
+    let b = new Set([4,5,2,9]);
+
+    //求并集
+    console.log(new Set([...a,...b]));
+
+    //求差集
+    console.log(
+        new Set(
+            [...a].filter(function(item){
+                return !b.has(item);
+            })
+        )
+    );
+
+    // 求交集
+    console.log(
+        new Set(
+            [...a].filter(function(item){
+                return b.has(item);
+            })
+        )
+    );
+    
+    
+      
+
+        
+
+
+        
+        
+        
+    </script>
+</body>
+</html>
