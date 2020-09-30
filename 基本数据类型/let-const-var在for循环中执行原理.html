@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //因为var没有块级作用域，所以这个地方相当于定义了全局的i
+    //    for( var i =1; i<=3; i++){
+    //        console.log(i); //这个地方改的是全局的i，因为是用var声明定义的 
+    //    }
+    //    console.log(window.i);
+
+
+
+    //这个地方的let是块级作用域
+    // for( let i =1; i<=3; i++){
+    //        console.log(i); //这个地方改的是全局的i，因为是用var声明定义的 
+    //    }
+    //    console.log(window.i);
+
+
+
+    // for (var i = 1; i<=3; i++){
+    //     setTimeout(function(){
+    //     console.log(i); //这个地方i打印的是3个4，如果是用let定义，则这个地方打印的是1，2，3
+    // },1000);
+    // }
+
+    //模拟出var的伪装块作用域，var没有块级作用域，有函数作用域
+     for (var i =1; i <= 3; i++){
+         //这个地方的a是接受i传过来的参数
+         (function(a){//这个地方是匿名函数
+              console.log(a);
+         })(i);//立即执行函数
+     }
+       
+    </script>
+</body>
+</html>

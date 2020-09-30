@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var 没有块级作用域，可以在全局变量里面使用，windows对象也可以打印
+      {
+          let a = 1;
+          console.log(a);   
+      }  
+      {
+          let a =2;
+          console.log(a);
+          
+      }
+      //上面两个a是两个不同的作用域
+
+    //   console.log(a);//这句话报错，
+      
+    </script>
+</body>
+</html>

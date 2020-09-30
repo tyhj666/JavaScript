@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let arr = [];
+       for(let i=1; i<=3; i++){
+           arr.push(function(){
+               return i;
+           })// 这个地方给arr压入了一个函数，把i的作用域给保留了下来
+       } 
+       console.log(arr[0]);//这个地方打印出来的是一个函数
+       console.log(arr[0]());//这个意思是执行数组的第0个函数
+       
+       
+    </script>
+</body>
+</html>
