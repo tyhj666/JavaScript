@@ -8,7 +8,59 @@
 </head>
 <body>
     <script>
-        
+       // bind call 
+    //    function show(){
+    //        console.log(this.name);
+    //    }
+
+    //    show.call({name:"后盾人"});
+    //    //这个方法跟call函数差不多，但是不是立即执行的，如果想要立即执行，需要在后面加()
+    //    //bind方法相对于重新赋值了一个一模一样的全新的函数
+    //    show.bind({name:"hdcms"});
+
+
+    //    let a = function(){}
+    //    let a = b;
+    //    console.log(a === b); // true
+    //    b = a.bind();
+    //    console.log(a === b);// false
+
+
+    //    // 参数传递
+    //    function hd (a, b){
+    //        return this.f + a + b;
+    //    }
+
+    //    let func = hd.bind({f:1},1,1);
+      
+    //   //这个地方传的参数只有当bind没有传时才起作用，负责不起作用
+    //    func(2,3)
+
+
+    //    document.querySelectorAll("button").addEventListener(
+    //        "click",
+    //        function(event){
+    //            document.write(this.url + event.target.innerHTML);
+    //        }.bind({url:"hodunren.com"}));
+
+
+    //用bind实现颜色随机效果
+    function Color(elem){
+        this.elem = elem;
+        this.colors = ['#1abc9c','#f1c40f',"#9b59b6","#f39c12"];
+        this.run = function(){
+            // setInterval(function(){
+            //     console.log(this);
+                
+            //     let i = Math.floor(Math.random()*this.colors.length);
+            //     this.elem.style.backgroundColor= this.colors[i];
+            // }.bind(this),1000);//之所以用bind是因为在setInterval这个函数里面想得到Color对象，但是this在普通函数里面指的是window对象
+        }
+    }
+
+    let obj = new Color(document.body);
+    obj.run();
+       
     </script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //全局环境不会被回收
+        let title = "后盾人";
+
+     //定义的函数被调用的，系统才会创建针对这个函数的内存空间
+     //只有对象内部的方法被外部引用时才不会被清空，环境才会被保留
+        // //延伸函数环境生命周期
+        // function hd (){
+        //     let n=1;
+        //     function sum(){
+        //         console.log(++n);
+                
+        //     }
+        //     sum();
+        // }
+        // hd();
+        // hd(); //这个地方无论hd方法被调用多少次，每次调用，都会创建一个单独的内存，跟上一次一点关系没有
+
+
+
+    //      function hd (){
+    //         let n=1;
+    //      return   function sum(){
+    //             console.log(++n);
+                
+    //         }
+    //         sum();
+    //     }
+    //    let a= hd();
+    //     a();
+    //     a();//这个地方随着调用次数的增加，n会实现累加，因为有外部的a在引用内部的函数，保留了原来的环境
+    </script>
+</body>
+</html>
