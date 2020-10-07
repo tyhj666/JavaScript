@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    const user = {
+    //        name: "向军",
+    //        age: 18
+    //    };
+       //获取某一对象属性的操作权限和描述
+    //    console.log(
+    //        JSON.stringify(
+    //            Object.getOwnPropertyDescriptor(user,"name"),null,2)
+    //    );
+    //    //获取某一对象的所有属性的特征
+    //    console.log(
+    //        JSON.stringify(
+    //            Object.getOwnPropertyDescriptors(user),null,2)
+    //    );
+
+    //给对象新增属性或者修改属性
+    // Object.defineProperty(user,"name",{value:"后盾人"});
+    // Object.defineProperty(user,"name",{
+    //     value:"后盾人",
+    //     writable:false,//表示这个属性的值不能更改
+    //     enumerable:true,//表示是否允许遍历这个属性
+    //     configurable:true //表示是否可以删除这个属性或者可配置这个属性
+    //     });
+
+
+    //      //批量操作属性的特征
+    //     Object.defineProperties(user,{
+    //         name:{
+    //             value:"后盾人",
+    //     writable:false,//表示这个属性的值不能更改
+    //     enumerable:true,//表示是否允许遍历这个属性
+    //     configurable:true //表示是否可以删除这个属性或者可配置这个属性
+    //         },
+    //         age:{
+    //             value:"后盾人",
+    //     writable:false,//表示这个属性的值不能更改
+    //     enumerable:true,//表示是否允许遍历这个属性
+    //     configurable:true //表示是否可以删除这个属性或者可配置这个属性
+    //         }
+    //     })
+    //     console.log(user.name);
+
+
+
+
+        //禁止向对象中添加属性
+        // "use strict"
+        // const user = {
+        //     name: "后盾人",
+        //     age: 18
+        // };
+        // //静止给对象添加属性
+        // Object.preventExtensions(user);
+        // if (Object.isExtensible(user)) {
+        // user.site = "houdunren.com"
+        // }
+        // console.log(user);
+
+
+
+
+        //封闭对象，不能给对象添加属性，不能删除对象属性，不能修改对象的特征
+        // "use strict";
+        // const user = {
+        //     name: "后盾人",
+        //     age: 18
+        // }
+        // //将user对象设置成封闭对象
+        // Object.seal(user);
+        // console.log(
+        //     JSON.stringify(
+        //         Object.getOwnPropertyDescriptors(user),null,2
+        //     )
+        // );
+        
+        // // user.site = "houdunren.com";
+        // delete user.name
+
+
+        //冻结对象的API特征
+        "use strict";
+        const user = {
+            name: "后盾人",
+            age: 19
+        };
+        //冻结对象，不能给对象添加属性，修改属性，删除属性
+        Object.freeze(user);
+        console.log(
+            JSON.stringify(Object.getOwnPropertyDescriptors(user),null,2)
+        );
+        
+       
+    </script>
+</body>
+</html>

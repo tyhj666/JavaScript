@@ -8,15 +8,40 @@
 </head>
 <body>
     <script>
-       let arr = [];
-       for(let i=1; i<=3; i++){
-           arr.push(function(){
-               return i;
-           })// 这个地方给arr压入了一个函数，把i的作用域给保留了下来
-       } 
-       console.log(arr[0]);//这个地方打印出来的是一个函数
-       console.log(arr[0]());//这个意思是执行数组的第0个函数
+    //    let arr = [];
+    //    for(let i=1; i<=3; i++){
+    //        arr.push(function(){
+    //            return i;
+    //        })// 这个地方给arr压入了一个函数，把i的作用域给保留了下来
+    //    } 
+    //    console.log(arr[0]);//这个地方打印出来的是一个函数
+    //    console.log(arr[0]());//这个意思是执行数组的第0个函数
        
+       
+
+
+    //    let arr = [];
+    //    for (var i =1; i <= 3; i++){
+    //        arr.push(function(){
+    //            return i;  //这个地方回去它的父级去找i，但是父级没有i，所有就用全局的i，因此后log打印的都是4
+    //        })
+    //    }
+    //    console.log(arr[0]());
+
+
+
+        //下面这种打印的就是局部的i，因为改变了i的作用域
+       let arr = [];
+       for (var i =1; i <= 3; i++){
+           (
+            arr.push(function(i){
+               return i;  //这个地方回去它的父级去找i，但是父级没有i，所有就用全局的i，因此后log打印的都是4
+           })
+           )(i);
+       }
+       console.log(arr[0]());
+       
+
        
     </script>
 </body>

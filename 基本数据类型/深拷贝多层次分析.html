@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  let obj = {
+        //      name: "后盾人",
+        //      user: {
+        //          name: "hdcms"
+        //      }
+        //  };
+
+        //  let hd = {
+        //      name: obj.name,
+        //      //这种赋值方法obj的user属性和hd对象的user属性共用一个内存地址
+        //      user:obj.user
+        //  };
+        //  console.log(JSON.stringify(hd, null, 2));
+
+
+
+        //对象的深拷贝
+        // let data = {
+        //     name: "后盾人",
+        //     user: {
+        //         name: "hdcms"
+        //     }
+        // };
+
+        // function copy(object){
+        //     let res = {};
+        //     for (const key in object) {
+        //         // res[key] = object[key];
+        //         res[key] = typeof object[key] == 'object' ?copy(object[key]):object[key]
+        //     }
+        //     return res;
+        // }
+
+        // let hd = copy(data);
+        // console.log(JSON.stringify(hd, null, 2));
+
+
+        //当对象中有数组时的拷贝方法
+        let data = {
+            name: "后盾人",
+            user: {
+                name: "hdcms"
+            },
+            arr: []
+        };
+        // console.log([] instanceof Array); //true
+        // console.log({} instanceof Array); // false
+        // console.log(typeof []); //object
+
+        // let a = ["后盾人", "向军"];
+        // // console.log(Object.entries(a));
+        // console.log(JSON.stringify(Object.entries(a), null, 2));
+        
+        // let b ={name: "后盾人", title:"lfk"}
+        // console.log(JSON.stringify(Object.entries(b), null, 2));
+        function copy(object){
+            let res = object instanceof Array?[]:{};
+            for (const [k,v] of Object.entries(object)) {
+                // console.log(v);  
+                res[k] = typeof v =='object'?copy(v):v;
+            }
+            return res;
+        }
+    let hd = copy(data);
+        
+     hd.arr.push("abc");
+     console.log(JSON.stringify(hd, null, 2));
+     console.log(JSON.stringify(data, null, 2));
+         
+    </script>
+</body>
+</html>

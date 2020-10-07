@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.属性检测
+           //1.1对象的属性检测
+
+
+        //    let arr = ["houdunren.com","hdcms"];
+        //    console.log(arr);
+        //    //下面这种检测方式只检查当前对象是否有属性，不检查原型对象(父级)是否有属性
+        //    console.log(arr.hasOwnProperty("length"));
+           
+        //    // 这种写法即检查当前对象是否有concat属性，同时也检测原型对象(父级)是否有该属性
+        //    console.log("concat" in arr);
+           
+
+
+
+           let a = {
+               name:'后盾人'
+           };
+
+           console.log(a);
+           
+
+           let b = {
+               url:"houdunren.com"
+           };
+
+           //把b变成a的父亲,即改变a的原型
+           Object.setPrototypeOf(a,b)
+           console.log(a);
+
+           function oss (options){
+               if (!options.hasOwnProperty("host")) {
+                   throw new Error("必须设置主机地址");
+               }
+           }
+
+           oss({user:"admin"});
+           
+           
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //给数组用展开语法添加元素的方法
+        //  let arr = [1,2];
+        //  let a = [...arr,6,7,8];
+
+        //  //给对象用展开语法添加属性的方法
+        //  let user = {name:'lfk', age:22};
+        //  let hd = {...user,lang:"zh"};
+
+
+         //在对象中有重名属性的时候，后面的会把前面的覆盖掉
+        //  function upload(){
+        //      let config = {
+        //          type:'*.jpg,*.png',
+        //          size: 10000
+        //      }
+        //      console.log(config);            
+        //  }
+        //  upload();
+
+
+
+
+
+        function upload(params){
+             let config = {
+                 type:'*.jpg,*.png',
+                 size: 10000
+             };
+             //第一个,把...params展开并添加到config后面，如果有重名的，则后面的把前面的覆盖掉
+             config = {...config,...params}
+             console.log(config);            
+         }
+         upload({size:99});
+
+
+    </script>
+</body>
+</html>

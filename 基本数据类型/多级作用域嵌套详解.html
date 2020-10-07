@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let arr= [];
+         for(let i = 1; i <= 3; i++){
+             //这个地方没循环一次，都会给数组里面添加一个函数，
+             //这个函数将i返回，导致循环结束之后，循环里面的变量
+             //没有释放，一直存在
+
+             //如果把上面的let变成var之后，就变成了全局变量，每次循环都操作的是全局变量
+             //所以当执行console.logj(arr[0]()),console.logj(arr[1]()),console.logj(arr[2]())
+             //这三个执行的结果都是四
+             arr.push(
+            function(){
+                 return i;
+             })
+         }
+
+
+
+
+         for(var i = 1; i <=3; i++){
+             (
+               //这个地方会使父级的作用域环境保留下来  
+                 function(i){
+                 arr.push(
+                     function(){
+                         return 1;
+                     }
+                 )
+             })(i);
+         }
+    </script>
+</body>
+</html>

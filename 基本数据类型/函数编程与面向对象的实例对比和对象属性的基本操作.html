@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let name = "lfk";
+       let grade =[
+           {name:'js',score:99},
+           {name:'docker',score:76}
+       ] ;
+       function average(grade, name){
+        let total = grade.reduce(
+            function(t,l){
+                console.log(t+"=====");
+                console.log(l);
+                console.log(t + l.score);
+                
+                
+          return   t + l.score
+            },0
+        );
+        
+        return `${name}的平均成绩是:${total/grade.length}`;
+        console.log(total);        
+       }
+       console.log(average(grade,name));
+
+       //获取对象的属性 
+       let user = {
+           name : "lfk",
+           "my age":19
+       }
+
+    //    user.name // user["my age"]
+
+    //对象的遍历
+    // for(const key in user){
+    //     console.log(user[key]);  
+    // }
+
+    //给对象动态添加属性和方法
+    // user.age=19
+    // user.get= function(){
+    //     return `${this.name}`
+    // }
+
+    // 给对象删除属性
+    // delete user.age;
+    </script>
+</body>
+</html>

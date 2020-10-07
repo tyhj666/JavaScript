@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let hd = {
+            user: "后盾人",
+            get: function() {
+                return function (){// 14-16行是闭包函数，这里面的this是windows对象，在执行this.user会报unfinded
+                    return this.user; //this指的是当前调用函数的对象
+                };
+            }
+        };
+        console.log(hd.get()());
+        
+    </script>
+</body>
+</html>

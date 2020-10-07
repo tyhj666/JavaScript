@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    "use strict";
+    //    const user = {
+    //        name: "后盾人",
+    //        age: 18
+    //    };
+
+    // //访问器的目的是让对象的属性有约束，不是想改成什么样就改成什么样
+    //    user.age=1999;//目age可以任意更改，不受控制
+
+
+
+
+    //下面该age赋值的方法虽然有了一定的约束，但是只能通过对象里面的set方法来赋值，不能直接对象.属性的方式来赋值
+    //如果想用对象.属性的方式赋值，则就用访问器来控制
+    // "use strict";
+    //    const user = {
+    //       data: {name: "后盾人",age: 18},
+    //       setAge(value){
+    //           if (typeof value != "number" || value < 10 || value > 100) {
+    //               throw new Error('年龄格式错误')
+    //           }
+    //       },
+    //       getAge(){}
+    //    };
+    //    user.setAge(999);
+
+
+
+
+    // "use strict";
+    //    const user = {
+    //       data: {name: "后盾人",age: 18},
+    //       //这样的set方式是访问器的写法
+    //       set age(value){
+    //           if (typeof value != "number" || value < 10 || value > 100) {
+    //               throw new Error('年龄格式错误')
+    //           }
+    //           this.data.age = value;
+    //       },
+    //     //   getAge(){}
+    //     get age(){
+    //         return this.data.age;
+    //     }
+    //    };
+    //    user.age = 88;
+    //    //调用get age方法
+    //    console.log(user.age);
+
+
+
+
+    //访问器伪造属性操作
+    // "user strict";
+    // let lesson = {
+    //     lists:[
+    //         {name: "js",price: 100},
+    //         {name: "mysql",price: 212},
+    //         {name: "vue.js",price: 98},
+    //     ],
+
+    //     //利用控制器的功能汇总价格总数
+    //     get total(){
+    //         return this.lists.reduce((t,l) => t+l.price, 0);
+    //     }   
+    // };
+
+    // //这个地方给total赋值，在严格模式下会报错，不在严格模式下也不会生效
+    // lesson.total=8388;
+    // console.log(lesson.total);
+
+
+
+
+    //使用访问器批量设置属性
+    // "use strict";
+    // const web = {
+    //     name: "后盾人",
+    //     url: "houdunren.com",
+    //     get site(){
+    //         return `${this.name}的网址是${this.url}`;
+    //     },
+    //     set site (value){
+    //         // console.log(value);
+    //        [this.name,this.url] = value.split(",");
+    //     }
+    // };
+    // // web.name = "hdcms";
+    // // web.url = "ww.hdcms.com";
+    // web.site = "开源产品,www.hdcms.com";
+    // console.log(web.name);
+    // console.log(web.url);
+    // console.log(web.site);
+
+
+
+
+    //访问器实例，token的读写处理
+    "use strict"
+    let Request = {
+        set token(content){
+            localStorage.setItem('token',content);
+        },
+
+        get token(){
+         let token =  localStorage.getItem('token');
+            if (!token) {
+                alert('请登录')
+            }
+            return token;
+        }
+    };
+    Request.token = "33lflkfkalosdgffda";
+    console.log(Request.token);
+    
+
+
+    
+    
+
+    
+
+       
+
+    
+    </script>
+</body>
+</html>

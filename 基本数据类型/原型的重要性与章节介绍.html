@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //JS里面的继承是通过原型来实现的
+        //原型就是对象的父级，多个父级连接到一块就是原型链
+    //    let arr = ["后盾人"];
+    //    console.log(arr.concat("houdunren.com"));
+    //    let hd = {};
+    //    //获取hd的原型(父级)
+    //    console.log(Object.getPrototypeOf(hd));
+
+
+    //没有原型的对象也是存在的
+     //创建一个对象，并且给这个对象定义属性,这个方法的第一个参数指定这个对象的原型，如果是null，就说明这个对象没有原型
+//   let hd =  Object.create(null,{
+//         name:{
+//             value:"后盾人"
+//         }
+//     })
+
+
+
+
+
+       //原型方法与对象方法的优先级,先用自己的，后用原型的
+    //    let hd = {
+    //        show(){
+    //            console.log("后盾人");
+               
+    //        },
+    //        render(){
+    //            console.log("hd.render");
+               
+    //        }
+    //    };
+    //    console.dir(hd);
+    //    //给hd对象的原型添加render方法
+    //    hd._proto_.render = function(){
+    //        console.log("向军");
+    //    };
+
+
+
+
+
+    //函数拥有多个长辈(原型),函数作为构造函数和普通对象使用的场景
+    // function User(){}//函数也可以看成是对象，可以当对象用，也可以当构造函数用
+    // console.dir(User)
+    //当函数作为对象调用时，它的原型是_proto_
+    //当用构造函数创建的对象时new User,原型是prototype,用于函数实例化的场景
+
+ 
+    //p196有问题
+
+ 
+    //原型关系详解与属性继承实例
+    // let hd = new Object();
+    // hd.name = "后盾人";
+    // Object.__proto__.show = function(){
+    //     console.log("lfk");  
+    // },
+    //这个地方给object的原型添加了一个show方法，这个时候，
+    //无论是用构造函数的方式创建的User对象还是用方法当作user对象的方式，都可以用这个show方法
+    //因为这两种创建对象的方式的原型都是Object.prototype
+    // Object.prototype.show = function(){
+    //     console.log("houdunren.com");
+    // }
+    // console.dir(hd);
+    
+    // hd.show(); //这个地方打印的是houdunren.com
+    // function User(){}
+    // console.dir(User)
+    // console.dir(User.show());// 这个地放打印的是lfk
+
+    //我们自己创建的对象的父级都是Object的prototype,无论是通过函数创建的对象函数通过构造方法创建的对象，但是Object的__proto__只服务与自己
+
+
+
+
+
+
+    //系统构造函数的原型体现
+    // let hd = {} // 相当于let hd = new Object()
+    // console.log(hd.__proto__ == object.prptotype);
+
+
+    // let arr = [];// 相当于 let arr = new Array()
+    // console.log(arr.__proto__ == Array.portotype);
+
+    // let str = "";//相当于 let str = new String()
+    // console.log(str.__proto_== String.prototype);
+
+    // let reg = /a/i;//new RegExp
+    // console.log(reg.__proto__ == RegExp.prototype);
+
+    // let obj = {};
+    // console.log(obj.__proto__ == Object.prototype);
+
+
+
+
+    //自定义对象的原型设置，类似于继承
+    // let hd = {name: "hd"};
+    // let parent = {name: "parent"};
+    // //将hd的父级设置为parent
+    // Object.setPrototypeOf(hd,parent);
+    // //查看对象的原型
+    // console.log(Object.getPrototypeOf(hd));
+    // console.log(hd);
+    
+
+
+    //原型中的constructor引用,原型就是对象，只要是对象，就有构造函数
+    // function User(name){
+    //      this.name = name;
+    // };
+
+    // User.prototype = {
+    //     constructor: User,
+    //     show(){
+    //         console.log(this.name);
+            
+    //     }
+    // }
+    // console.dir(User);
+    // console.log(User.prototype.__proto__ == Object.prototype);
+    // console.log(User.prototype.constructor == User);
+    // let lisi = new User.prototype.coustrcutor("李四");
+    // console.log(lisi);
+
+
+
+    //原型链的总结,对象的原型用arr.__proto__的方式来查找
+    // let arr = [];// new Array
+    // console.log(arr.__proto__);
+
+
+
+    //原型链检测之instanceof
+
+
+    //Object.isPrototypeOf原型检测(一个对象是否在另一个对象的原型链上)
+    // let a = {};
+    // let b = {};
+    // Object.setPrototypeOf(a,b);//把b设置为a对象的原型
+    // console.log(b.isPrototypeOf(a));//b是否是a对象的父级
+
+
+
+    //in 与hasOwnProperty的属性检测差异
+    // let a = {url: "houdunren"};
+    // let b = {name: "后盾人"};
+    // console.log("url" in a); //url属性是否在对象上面，同时也可以检测是否在a对象的原型链上
+    // Object.setPrototypeOf(a,b);
+    // console.log("name" in a);
+    // console.log(a.hasOwnProperty("url"));//只会检测当前对象，并不会检测原型链
+
+    // for (const key in object) {
+    //     if (object.hasOwnProperty(key)) {//加上这个之后，只会遍历a的属性，并不遍历原型链的属性
+    //         const element = object[key];
+            
+    //     }
+    // }
+
+
+
+
+    //使用call或apply借用原型链，比如我没有车，父母也没有车，但是邻居有车，这时可以借用邻居的车
+    // let hd = {
+    //     data: [1,2,3,43,5,7]
+    // };
+    // Object.setPrototypeOf(hd,{
+    //     max(){
+    //         return this.data.sort((a,b) => b-a)[0];
+    //     }
+    // });
+    // console.log(hd.max());
+
+    // let xj = {
+    //     lessons:{js:87, php: 63, node: 99, linux: 88},
+    //     get data(){
+    //         return Object.values(this.lessons)
+    //     }
+    // };
+    // console.log(hd.max.apply(xj));
+    //这个地方，hd对象的max里面的this是xj对象
+
+
+
+    //DOM节点借用Array原型方法
+    // let arr = [1,3,4];
+    // let res = arr.fileter(item => {
+    //     return item > 39;
+    // });
+
+    // let btns = document.querySelectorAll("button");
+    // // btns.fileter//这个地方报错，因为没有filter这个方法，只有它的原型才有
+    // btns = Array.prototype.filter.call(btns, item => {
+    //     return item.hasAttribute("class");
+    // });
+    // console.log(btns);
+
+
+
+    //构造函数相关的原型
+    // function User(name){
+    //     this.name = name;
+    //     // this.show = function(){
+    //     //     console.log(this.name);
+            
+    //     // };
+    // }
+    // User.prototype.show = function(){
+    //     console.log(this.name);
+        
+    // }
+
+    // //下面创建了两个对象，两个对象都分别各有一个属性和方法，但是这个方法有一个就够了，不需要为每一个对象单独开辟内存创建方法
+    // //把这个方法放到原型里面就可以了
+    // let lisi =new User("李四");
+    // let xj = new User("向军");
+
+
+
+
+    //this和原型没有关系，始终指向调用属性的对象
+
+
+
+
+    //不要滥用原型
+
+    
+    //Object.create与__proto__,prototype主要是用来定义构造函数的原型
+
+    //下面只能定义对象的原型，不能获取
+    // let hd = Object.create(user,{
+    //     name:{
+    //         value:"后盾人"
+    //     }
+    // })
+
+    // let hd = {name:"后盾人"};
+    // //这种方式既可以获取，也可以设置,这是非标准的，比Object.create后出来
+    // hd.__proto__ = user;
+
+
+
+    //使用setPrototypeOf替代__proto__，推荐的一种标准方法
+    // let hd = {name:"后盾人"};
+    // Object.setPrototypeOf(hd,user);//设置原型
+    // Object.getPrototypeOf(hd);//获取对象的原型
+
+
+
+    //__proto__原来是属性访问器，是一个getter 和setter
+    // let hd = {name:"后盾人"};
+    // //这个地方改变了hd的原型，多添加了一个show方法
+    // hd.__proto__ = {
+    //     show(){
+    //         console.log(this.name);
+            
+    //     }
+    // };
+    // //必须是对象，不能是普通的值类型，如果是普通的值类型，将不起作用
+    // //这个是借用了对象的set 和 get的功能，如果想让下面的这个代码成立，可以
+    // //把hd对象的原型改成没有,即让hd对象的原型为空  Object.create(null)
+    // hd.__proto__ = 99;
+    
+
+
+
+    //改变构造函数原型并不是继承
+    //原型的继承，而不是改变构造函数的原型
+    function User(){}
+    //给user对象的原型添加一个name方法
+    User.prototype.name = function(){
+        console.log("user.name");
+        
+    }
+
+    function Admin(){}
+    //这种写法是改变了构造函数的原型，并不是继承
+    Admin.prototype = User.prototype;
+    Admin.prototype.role = function(){
+        console.log("admin.role");
+        
+    }
+
+
+
+    //继承是原型的继承，并不是改变构造函数的原型的继承
+    // Admin.prototype.__proto__ = User.prototype
+
+
+    //继承对新增对象的影响
+
+    //继承对constructor属性的影响
+    // function Hd(){}
+    // let obj = new Hd();
+    // //根据一个对象的原型的构造方法属性创建一个新的实例对象
+    // let obj2 = obj.__proto__.constructor;
+
+    // function Admin(){}
+    // Admin.prototype = Object.create(User.prototype);
+    // Admin.prototype.constructor = Admin;
+    // Admin.prototype.role = function(){
+    //     console.log("admin.role");
+        
+    // }
+    // let a = new Admin();
+    // console.log(a.__proto__);
+
+
+    // //禁止constructor被遍历
+    // Object.defineProperty(Admin.prototype,"constructor",{
+    //     value:Admin,
+    //     enumberable:false
+    // });
+    // console.log(Object.getOwnPropertyDescriptor(Admin.prototype));
+
+
+
+    //方法重写与父级属性访问
+    function User(){}
+    User.prototype.show = function(){
+        console.log("user.name");
+    }
+
+    function Admin(){}
+    Admin.prototype = Object.create(User.prototype);
+    Admin.prototype.constructor = Admin;
+    //重写父类方法
+    Admin.prototype.show = function(){
+        console.log("admin.show");
+        
+    }
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

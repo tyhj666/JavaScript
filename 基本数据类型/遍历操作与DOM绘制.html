@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let hd = {
+        //    name: "后盾人",
+        //    year: "2010" 
+        // };
+    //     // console.log(...(Object.keys(hd)));
+    //     // console.log(Object.values(hd));
+    //    let [n,y] = Object.keys(hd);
+    //    console.log(n,y);
+    //    console.log(Object.entries(hd));
+    //    console.log(JSON.stringify(Object.entries(hd),null,2));
+       
+    // for (const key in hd) {
+    //     console.log(key);
+    //     console.log(hd[key]); 
+    // }
+        
+        //默认for  of 不能直接操作对象
+        //因为Object.entries()的结果是一个数组，所以下面[key, value]用的是解构特性的功能
+        // for (const [key,value] of Object.entries(hd)) {
+        //     console.log(key,value);
+            
+        // }
+
+
+        let lessons = [
+            {name:"js", click:999},
+            {name:"node", click:127},
+        ]
+
+        for (const key in lessons) {
+            console.log(lessons[key]);
+            
+        }
+        for (const lesson of lessons) {
+            console.log(lesson);
+            
+        }
+    </script>
+</body>
+</html>

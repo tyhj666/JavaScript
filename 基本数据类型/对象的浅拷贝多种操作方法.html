@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //  let hd = {name:"后盾人"};
+    //  //这种赋值方法共用了一个对象的内存地址,任何一个对象修改属性的值，两个对象的对应属性的值都会改变
+    //  let cms = hd;
+    //  cms.name = "houdunren.com";
+    //  console.log(hd);
+
+
+    // let hd = {name: "后盾人"};
+    // let mcs = {
+    //     //这种赋值方式mcs和hd不共用一块内存地址
+    //     name: hd.name
+    // };
+    // console.log(cms);
+
+
+
+    //对象的循环赋值方式
+    // let hd = {name: "后盾人", url: "houdunren.com"};
+    // let obj = {};
+    // for (const key in hd) {
+    //    obj[key] = hd[key];
+    // }
+    // obj.name = "lfk";
+    // console.log(obj);
+    // console.log(hd);
+
+
+    let hd = {name: "后盾人", url: "houdunren.com"};
+    //将{}对象和hd合并，也可以看作是将hd赋值给{}，这个地方这两个对象不共用内存地址
+    // let obj = Object.assign({}, hd);
+    // console.log(obj);
+    // obj.name = "lfk";
+    // console.log(obj);
+    // console.log(hd);
+
+    let obj = {...hd}
+    console.log(obj);
+    obj.name = "lfk";
+    console.log(obj);
+    console.log(hd);
+      
+    </script>
+</body>
+</html>

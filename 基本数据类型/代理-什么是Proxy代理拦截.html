@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" v-model="title" />
+    <input type="text" v-model="title" />
+    <h4 v-bind="title">这里也会发生更新</h4> -->
+    <script>
+    // "use strict"
+    //   const hd = {name: "后盾人"}  
+    //   const proxy = new Proxy(hd,{
+    //       get(obj, property){
+    //         //   console.log(obj);
+    //         //   console.log(property);
+    //           return obj[property]
+    //       },
+    //       set(obj, property,value){
+    //           obj[property] = value;
+    //           return true;
+    //       }
+    //   });
+    //   console.log(proxy.name);
+    //   proxy.name = "lfk";
+    //   console.log(proxy.name);
+    //   console.log(proxy);
+
+
+
+
+    //使用代理控制函数
+    // "use strict"
+    // function factorial(num){
+    //     return num ==1 ? 1 :num * factorial(num - 1);
+    // }
+    // // console.log(factorial(5));
+    // let proxy = new Proxy(factorial,{
+    //     //func是代理目标，即函数，obj是当前调用对象的上下文，args是传递参数的上下文
+    //     apply(func, obj, args){
+    //        console.log(func);
+    //        console.log(obj);
+    //        console.log(args);
+           
+           
+    //     }
+    // });
+    // proxy.apply(this,[5]);
+
+
+
+
+    //数组使用代理拦截操作
+    // "use strict"
+    //  const lessons = [
+    //      {
+    //          title: "媒体查询响应式布局",
+    //          category: "css"
+    //      },
+    //      {
+    //          title: "FLEX弹性盒模型",
+    //          category: "css"
+    //      },
+    //      {
+    //          title: "MYSQ多表查询",
+    //          category: "mysql"
+    //      }
+    //  ];
+
+    //  let proxy = new Proxy(lessons,{
+    //      get(arry,key){
+    //         //  console.log(arry);
+    //          const title = arry[key].title;
+    //         //  console.log(title);
+    //          const len = 10;
+    //       arry[key].title =   title.length > len ? title.substr(0, len) + ".".repeat() : title;
+    //       return arry[key];
+    //      }
+    //  });
+    //  console.log(
+    //      JSON.stringify(proxy[0], null, 2)
+    //  );
+
+
+
+
+    //VUEJS数据绑定的容器更新
+    //双向数据绑定的页面渲染，接着上面的
+    // "use strict"
+    // function View(){
+    //     let proxy = new Proxy({},{
+    //         get(obj, property){},
+    //         set(obj, porperty, value){
+    //             // console.log(value);
+    //             document.querySelectorAll(`[v-modle="${porperty}"]`).forEach(
+    //                 item => {
+    //                   item.value = value;  
+    //                 }
+    //             );
+    //             document.querySelectorAll(`[v-bind="${porperty}"]`).forEach(
+    //                 item => {
+    //                   item.innerHTML = value;  
+    //                 }
+    //             )
+    //             return true;
+    //         }
+    //     })
+
+    //     this.init = function(){
+    //         const els = document.querySelectorAll("[v-model]");
+    //         console.log(els);
+            
+    //         els.forEach(item => {
+    //             console.log(item);
+                
+    //             item.addEventListener('keyup',function(){
+    //                 // console.log(llll);
+                    
+    //               proxy[this.getAttribute('v-model')] = this.value;
+    //             });
+    //         })
+    //     }
+    // }
+    //     console.log(new View().init());
+
+    
+
+
+
+    //表单验证组件的代理工厂
+    "use strict"
+    class Validate {
+        max(value, len){
+            return value.length <len;
+        }
+        min(value,len){
+            return value.length > len;
+        }
+        isNumber(value){
+            return /^d+$/.test(value);
+        }
+
+    }
+
+    function ProxyFactory(target){
+        return new Proxy(target,{
+        get(taeget,key){
+            return target[key];
+        },
+        set(){}
+        });
+    }
+    let validate = new Validate();
+    console.log(validate.max("abc",2));
+    
+
+
+
+
+        
+        
+     
+
+      
+      
+    </script>
+</body>
+</html>

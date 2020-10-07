@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     let user = {name: "后盾人", age: 18};
+    //     //n是后盾人  a是18,如果n和a各换成name和age时，可以简写成 let {name,age} = user
+    //     let { name: n,age:a} = user;
+    //     console.log(n);
+    //     console.log(a);
+        
+    //   // 也可以给函数返回的对象进行解构赋值，只要是对象，就可以解构赋值
+    //     function hd(){
+    //         return {name: "后盾人", age: 18};
+    //     }
+
+    //     let {name, age } = hd();
+    //     console.log(name,age);
+
+
+
+    //     //给函数传递参数的时候，也可以使用解构特性
+    //     function user({name,age}){
+    //         console.log(name,age);
+    //     }
+    //     user({name: "lfk", age: 22});
+
+
+    //     //解构函数
+    //     let {random} = Math;
+    //     console.log(random());
+        
+        
+
+        //严格模型下解构的差异
+        // "use strict";
+        // //({name,age} = {name:"lfk",age:23});在严格模式下，这种写法会报错
+        // let {name, age} = {name:"lfk", age: 23};
+        // console.log(name, age);
+
+
+        //解构操作的简写形式与变量解构
+        // let arr = ["后盾人","houdunren.com"];
+        // let[a,b] = arr; // 表示把后盾人赋值给a,把houdunren.com赋值给b
+
+
+        // let name="后盾人", url = "houdunren.com";
+        // let opt ={name:name,url:url}//简写为 let opt {name,url}
+
+        //多层对象的结构操作
+        // let hd = {
+        //     name:'后盾人',
+        //     lesson:{
+        //         title:'javaScript'
+        //     }
+        // }
+
+        // let {name} = hd;
+
+        // let {
+        //     name,
+        //     lesson:{title}
+        //   } = hd;
+        //   console.log(name,title);
+          
+
+        //结构默认值实现配置项合并
+        // let arr = ['后盾人','houdunren.com'];
+        // let [a,b,c] = arr;
+        // console.log(a,b,c);
+
+        // let user = {name:'后盾人', url:'houdunren.com'};
+        // //user对象里面没有title属性，在解构的时候给了一个默认值，默认值是当值不存的的时候使用，当值存在的时候不会使用默认值
+        // let {name, url, title="hdcms"} = user;
+
+        //DOM Node
+        // function createElement(options){
+        //     //如果options里面有值，则用options里面的值，如果没有值，则用解构后里面的值
+        //    let {width=200,height=100,backgroundColor='red'} = options;
+        //    const div = document.createElement('div');
+        //    div.style.width = width + 'px';
+        //    div.style.height = height + 'px';
+        //    div.style.backgroundColor = backgroundColor;
+        //    document.body.appendChild(div);
+        // }
+
+        // createElement({height:30, backgroundColor:'green'});
+
+
+
+        //函数参数的解构特性使用技巧
+
+        function hd ([name, age]){
+            console.log(name, age);
+        }
+        
+        hd(['lfk', 18]);
+
+
+        function user({name, age}){
+            console.log(name, age);
+            
+        }
+        user({name: "lfk", age: 18});
+
+
+    </script>
+</body>
+</html>

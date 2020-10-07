@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      let hd = {};
+      hd.name = '后盾人';
+      //这个地方的age如果不用双引号引起来，则会认为是变量
+      hd["age"] =19;
+      console.log(hd);
+
+
+      console.log(hd.hasOwnProperty("age"));//判断当前对象是否有某个属性
+      console.log(hd.hasOwnProperty("title"));//判断当前对象是否有某个属性
+      
+      
+    </script>
+</body>
+</html>

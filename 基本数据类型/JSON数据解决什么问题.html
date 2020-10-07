@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let data = {
+           name: "后盾人",
+           data: {
+               title: "php"
+           }
+       };
+
+
+    //JSON序列化与自定义toJSON
+    // let hd = {
+    //     title: "后盾人",
+    //     url: "houdunren.com",
+    //     teacher: {
+    //         name: "向军大叔"
+    //     },
+    //     toJSON: function(){
+    //         return  {
+    //           title:this.title,
+    //           teacher:this.teacher.name
+    //         }
+    //     }
+    // };
+    //把js数据变成JSON字符串就叫做数据的序列化
+//     //第二个参数表示要保留的参数
+//    let json1 = JSON.stringify(hd,["title", "url"],2);
+//    let json1 = JSON.stringify(hd,null,2);
+//    let json = JSON.stringify(hd,null,2);
+//    console.log(typeof json);
+//    console.log(json1);
+//    console.log(json);
+
+
+//    let arr = ["后盾人","hdcms.com"];
+
+
+
+//JSON转换为JS可操作类型
+"use strict"
+let hd = {
+        title: "后盾人",
+        url: "houdunren.com",
+        teacher: {
+            name: "向军大叔"
+        }
+}
+
+let json = JSON.stringify(hd,null,2);
+
+let obj = JSON.parse(json);
+let obj = JSON.parse(json,(key, value) => {
+    console.log(key);
+    console.log(value);
+    
+});
+console.log(obj);
+
+   
+   
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      function User(name){
+          this.name = name;
+          this.show = function(){
+              console.log(this);
+              
+              console.log(this.name);  
+          };
+        //   return this;
+      }
+      let xj = new User("向军")
+   xj.show();
+      //this指的是当前调用方法的对象
+    //   let func = xj.show
+    //   //这个地方调用方法的对象是func，func是一个普通方法，所以该对象的this是windows对象
+    //   func();
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       button {
+           position: absolute;
+       }
+    </style>
+</head>
+<body>
+    <button message="后盾人">houdunren</button>
+    <button message="hdcms">hdcms</button>
+    <script>
+    //   let arr = [1,23,4,5,6,7,8,9,21,10];
+    // //   let hd = arr.filter(function(v){
+    // //       return v >=2 && v <=9;
+    // //   })
+    // //   console.log(hd);
+    // //   console.log(...hd);
+
+    // function between (a,b){
+    //     return function(v){//这个函数作为filter的回调函数，在循环的过程中，v都是变化的，而且是一个子函数，所有通过闭包来获取外部函数的私有变量
+    //         return v >=a && v <=b;
+    //     };
+    // }
+    // console.log(arr.filter(between(3,9)));
+    
+
+    //移动动画的闭包使用
+    //闭包就是我的函数可以访问到其他函数作用域的数据
+
+    // let  btns = document.querySelectorAll('button');
+    // btns.forEach(function(item){
+    //     let left = 1;
+    //     item.addEventListener('click',function(){
+    //         // let left = 1;//left放在这里会发生抖动，因为每点一次，会产生一个新的环境，会产生一个新的left，这样把left放到父级作用域就可以解决这个问题了
+    //         setInterval(function(){
+    //             item.style.left = left++ + "px";
+    //         },//这个item会一直往上找，直到找到为止 
+    //  5);
+            
+    //     });
+    // })
+
+
+
+    // 虽然解决了抖动的问题，但是随着点击的次数越来越多，按钮会移动的特别快(因为每点一次，就产生一个新的定时器，点的越多，生成的定时器也越多，导致速度加快)
+    // let  btns = document.querySelectorAll('button');
+    // btns.forEach(function(item){
+    //     let left = 1;
+    //     let interval = false;
+    //     item.addEventListener('click',function(){
+    //         // let left = 1;//left放在这里会发生抖动，因为每点一次，会产生一个新的环境，会产生一个新的left，这样把left放到父级作用域就可以解决这个问题了
+    //         if (!interval) {
+    //             interval = true;
+    //             setInterval(function(){
+    //             item.style.left = left++ + "px";
+    //         },//这个item会一直往上找，直到找到为止 
+    //         100);
+    //         }    
+    //     });
+    // })
+      
+    </script>
+</body>
+</html>
