@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function User(name, age){
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // User.prototype.show = function(){
+        //     console.log(this.name, this.age);
+            
+        // };
+
+        // // 方法一
+        // function Admin(name, age){
+        //     // User(name,age) //这种写法，User对象里面的this是windows对象，所以通过call来改变this的指向
+
+        //     //下面这句话的意思是,当我要访问User这个对象的时候，首先我要改变这个对象里面的this,这个this死当前对象
+        //     User.call(this, name, age);
+        // }
+ 
+        // //方法二
+        // // function Admin(...args){
+        // //     // User(name,age) //这种写法，User对象里面的this是windows对象，所以通过call来改变this的指向
+
+        // //     //下面这句话的意思是,当我要访问User这个对象的时候，首先我要改变这个对象里面的this,这个this死当前对象
+        // //     User.apply(this, args);
+        // // }
+        // // Admin.prototype = Object.create(User.prototype);
+        // Admin.prototype.constructor = Admin;
+        // console.log(Admin.prototype.constructor);//这个地方输出的是Admin的构造函数
+        
+        // Object.defineProperty(Admin.prototype,"constructor",{
+        //     value: Admin,
+        //     enumerable:false
+        // })
+        // let xj = new Admin("向军", 18);
+        // xj.show();
+
+        // function Member(...args){
+        //     User.apply(this,args);
+        // }
+
+        // Member.prototype = Object.create(User.prototype);
+        // let lisi = new Member("李四", 19);
+        // lisi.show();
+
+
+
+
+        
+
+        //使用原型工厂封装继承
+
+        //  function extend(sub, sup){
+        //      sub.prototype = Object.create(sup.prototype);
+        //      Object.defineProperty(sub.prototype,"constructor",{
+        //          value: sub,
+        //          enumerable: false
+        //      });
+        //  }
+
+        // function Member(...args){
+        //     User.apply(this,args);
+        // }
+
+        // extend(Member,User);
+        // let member = new Member("李四", 16);
+        // member.show()
+
+
+
+        //对象工厂派生对象并实现继承
+        // function User(name, age){
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // User.prototype.show = function(){
+        //     console.log(this.name, this.age);
+        // }
+
+        // function admin(name, age){
+        //     const instance = Object.create(User.prototype);
+        //     User.call(instance, name, age);
+        //     instance.role = function(){
+        //         console.log("role");
+                
+        //     };
+        //     return instance;
+        // }
+
+        // let admin = admin("向军",19);
+        // admin.show();
+
+
+
+
+
+        //多继承造成的困扰,js不存在多继承
+         
+
+
+        
+        //使用mixin实现多继承
+        extend(Admin,User);
+        //原型是对象，既然是对象，就可以往里面压属性
+        Admin.prototype = Object.assign(Admin.prototype,Request,Credit)
+
+
+
+        //mixin的内部继承与super关键字
+
+       
+
+
+
+       
+    </script>
+</body>
+</html>
