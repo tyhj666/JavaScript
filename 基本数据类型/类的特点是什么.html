@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //class声明类的语法
+        // class User{};
+        // let Hd = class{};
+        // console.log(Hd);
+
+        // class User{
+        //     show(){}
+        //     get(){
+        //         console.log("后盾人");
+        //     }
+        // }
+
+        // let hd = new User(); 
+        // hd.get();
+
+
+        // class User{
+        //     constructor(name){
+        //         this.name = name;
+        //     }
+
+        //     getName(){
+        //         return this.name;
+        //     }
+        // }
+
+        // let hd = new User("后盾人");
+        // console.log(hd.name);
+
+
+
+        //类的内部工作机制就是原型操作
+        // class User{
+        //     constructor(name){
+        //         this.name = name
+        //     }
+        //     //类里面定义的方法自动会放入构造函数的原型里面，而函数的方法需要手动放入构造函数的原型里面
+        //     show(){}
+        // }
+        // console.dir(User);
+        // console.log(User === User.prototype.constructor);
+        
+        // function Hd(){
+        //     this.name = name;
+        // }
+        // let h = new Hd("向军");
+        // console.log(Object.getOwnPropertyNames(h));//这个是输出对象的属性名称，不包括原型的属性和方法
+        // console.log(Object.getOwnPropertyNames(Hd.prototype));//打印原型对象
+        
+        
+        // Hd.prototype.show = function(){};
+        // console.dir(Hd);
+        // console.log(Hd === Hd.prototype.constructor);
+
+
+
+
+        //对象属性的声明
+        //  class User{
+        //      site = "后盾人";
+        //      constructor(name){
+        //          this.name = name;
+        //      }
+        //      changeSite(value){
+        //          this.value = value;
+        //      }
+        //      show(){
+        //          return `${this.site}:${this.name}`;
+        //      }
+        //  }
+        //  let hd = new User("后盾人");
+        //  console.log(hd);
+        //  let xj = new User("向军");
+        //  console.log(xj);
+
+
+
+
+
+        //class声明的方法为什么不能遍历
+        // function Hd(name){
+        //     this.name = name;
+        // }
+        // Hd.prototype.show = function(){};
+        // console.log(JSON.stringify(Object.getOwnPropertyDescriptor(Hd.prototype,"show"),null,2));
+        
+        // // console.dir(Hd);
+        // let h = new Hd("后盾人");
+        // for(const key in h){
+        //     // console.log(key);
+        //     if (h.hasOwnProperty(key)) {
+        //         console.log(key);
+                
+        //     }
+        // }
+        
+        // class User{
+        //     constructor(name){
+        //         this.name = name;
+        //     }
+        //     show(){}
+        // }
+        // let u = new User("向军");
+        // console.dir(User);
+        // console.log(
+        // // {
+        // // "writable": true,
+        // // "enumerable": false,是否可以遍历
+        // // "configurable": true
+        // // }
+        //     JSON.stringify(Object.getOwnPropertyDescriptor(User.prototype,"show"), null, 2)
+        // );
+
+
+
+
+
+
+        //严格模式下运行，class默认是在严格模式下运行的
+        // "use strict"
+        // class Hd{
+        //     show(){
+        //         function test(){
+        //             console.log(this);//在严格模式下，this代表windows对象时，是undefinde，非严格模式下，this指的是windows对象
+                    
+        //         }
+        //         test();
+        //     }
+        // }
+        // let hd = new Hd();
+        // hd.show();
+
+
+
+
+        //静态属性使用
+                
+
+         
+         
+        
+    </script>
+</body>
+</html>
