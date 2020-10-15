@@ -143,7 +143,327 @@
 
 
 
-        //静态属性使用
+        //静态属性使用，分配给构造函数的属性叫做静态属性
+        // class Request{
+        //     host = "https://www.houdunren.com"
+        // }
+
+        // let obj = new Request();
+        // console.log(obj);
+        // let obj2 = new Request();
+        // obj.host = "https://baidu.com"//这个地方只修改了obj对象的属性，不影响obj2对象的属性
+        // console.log(obj2);
+        // class Request{
+        //  static   host = "https://www.houdunren.com";
+        //  api(url){
+        //      return Request.host + `/${url}`;
+        //  }
+        // }
+
+        // let obj = new Request();
+        // console.log(obj.api('article/'));
+
+
+
+        //静态方法的实现原理
+        // class User{
+        //     show(){}//这一个普通方法，定义在原型上面了，用构造器创建的实例调用的是这个方法
+        //     static show(){}//当用对象直接调用时，调用这个方法
+        // }
+
+        // User.show();//打印的是static方法
+        // let hd = new User();//打印的是原型方法，不是静态方法
+
+
+        // class User{
+        //     constructor(name, age){
+        //         this.name = name;
+        //         this.age = age;
+        //     }
+
+        //     static create(...args){
+        //         return new this(...args);
+        //     }
+        // }
+
+        // let xj = User.create("向军", 19);
+        // console.log(xj);
+
+
+
+
+
+
+        //静态属性练习之课程管理类
+        // const data = [
+        //     {name: "js", price:100},
+        //     {name: "mysql", price:212},
+        //     {name: "vue.js", price:98}
+        // ]
+
+        // class Lesson {
+        //     constructor(data){
+        //         this.model = data;
+        //     }
+
+        //     price(){//这个地方如果改成get price()这样定义的函数，就是访问器的形式，后面用的时候直接用函数名，不用在后面加括号
+        //         return this.model.price;
+        //     }
+
+        //     static createBatch(data){
+        //         return data.map(item => new Lesson(item));
+        //     }
+
+        //     static maxPrice(data){
+        //         return data.sort((a,b) => b.price()-a.price())[0];
+        //     }
+        // }
+        // let lessons = Lesson.createBatch(data);
+        // console.log(lessons);
+        // console.log(Lesson.maxPrice(lessons).price());
+
+
+
+
+
+        //在类中使用访问器
+        //  class Request{
+        //      constructor(url){
+        //          this.host = url;
+        //      }
+
+        //     //  setUrl(url){
+        //     //      if(!/^https?:\/\//i.test(url)){
+        //     //          throw new Error("地址错误");
+        //     //      }
+        //     //  }
+
+        //     set host(url){
+        //         if(!/^https?:\/\//i.test(url)){
+        //             throw new Error("地址错误");
+        //         }
+        //     }
+
+        //     get host(){
+        //         return this.host;
+        //     }
+        //  }
+
+        //  let hd = new Request("http://www.houdunren.com");
+        //  hd.host = "hdcms.com";
+        // // hd.setUrl("hdicms.com")
+        //  console.log(hd);
+
+
+
+
+
+
+        //使用命名规则保护属性
+        // class User{
+        //     constructor(name){
+        //         this.name = name;
+        //     }
+        // }
+
+        // let hd = new User("后盾人");
+        // hd.name = "李四";//name属性外面可以随便修改，我们把这个叫做非保护的开发属性
+        // console.log(hd);
+
+        //设置保护属性的第一种方式
+        // class User{
+        //     _url = "hdcms.com";
+        //     constructor(name){
+        //         this.name = name;
+        //     }
+
+        //     set url(url){
+        //         if(/^https?:/i.test(url)){
+        //             throw new Error("非法地址")
+        //         }
+        //         this._url = url;
+        //     }
+        // }
+
+
+        //使用Symbol定义protected属性,在类及其子类中可以使用
+        // const HOST = Symbol("主机");
+        // const protecteds = Symbol();
+        // class Common{
+
+        //     // [HOST] = "https://houdunren.com";
+        //     constructor(){
+        //         this[protecteds] = {};
+        //         this[protecteds].host = "https://houdunren.com";
+        //     }
+        //     set host(url){
+        //         this[protecteds].host = url;
+        //     }
+
+        //     get host(){
+        //         return  this[protecteds].host;
+        //     }
+
+        // }
+
+
+        // class User extends Common{
+        //     constructor(name){
+        //         super();//子类调用父类的构造器
+        //         this[protecteds].name = name;
+        //     }
+
+           
+        // }
+
+        // let hd = new User("后盾人");
+        // console.log(hd);
+        // console.log(hd[protecteds]);
+
+
+        //使用WeakMap保护属性
+        // const host = new WeakMap();
+        // class Common{
+        //     constructor(name){
+        //         host.set(this,"https://houdunren.com");
+        //     }
+        //     set host(url){
+        //         host.set(this,url);
+        //     }
+
+        //     get host(){
+        //         return host.get(this)
+        //     }
+        // }
+        // class User extends Common{
+        //     constructor(name){
+        //         super();
+        //         this.name = name;
+        //         host.set(this,"https://houdunren.com");
+        //     } 
+        // }
+
+        // let hd = new User("后盾人");
+        // // host.set(hd,"abc");  //这个地方之所以可以修改是因为与类无关
+
+        // let lisi = new User("lis");
+        // lisi.host = "wwws.com";
+        // console.log(lisi.host);
+        // console.log(hd.host);
+
+
+
+
+
+        //private私有属性的使用,只能当前类当中使用
+        // class User{
+        //     #host = "https://houdunren.com";//加上#就变成了私有属性
+        //     constructor(name){
+        //         this.name = name;
+        //     }
+
+        //     set host(url){
+        //         this.#host = url;
+        //     }
+
+        //     get host(){
+        //         return this.host;
+        //     }
+        // }
+
+        // let hd = new User("后盾人");
+        // hd.#host = "wwww.com";
+        // console.log(hd);
+
+
+
+
+        //class属性继承原理
+
+        //对象的继承
+        // function User(name){
+        //     this.name = name;
+        // }
+
+        // function Admin(name){
+        //     this.name = name;
+        //     User.call(this,name);
+        // }
+
+        // //Admin继承User
+        // Admin.prototype = Object.create(User.prototype);
+        // let hd = new Admin("后盾人");
+        // console.log(hd);
+
+        //class属性的继承
+        // class User{
+        //     constructor(name){
+        //         console.log("33");
+                
+        //         this.name =name
+        //     }
+        // }
+        // class Admin extends User{
+        //     constructor(name){
+        //         super(name);
+        //     }
+        // }
+
+        // let hd = new Admin("后盾人");
+        // console.log(hd);
+
+
+       
+       
+        //类的方法继承原理
+        // function User(){}
+        // User.prototype.show = function(){
+        //     console.log("后盾人");
+            
+        // };
+        // function Admin(){}
+        // Admin.prototype = Object.create(User.prototype);  
+        // // console.dir(Admin)  
+        // let hd = new Admin();  
+        // console.dir(hd)  
+
+
+        // class User{
+        //     show(){
+        //         console.log("后盾人");
+                
+        //     }
+        // }
+        // class Admin extends User{
+        //     constructor(name){
+        //         super();
+        //         this.name = name;
+        //     }
+        // }
+        // console.dir(Admin);
+        // let hd = new Admin("向军");
+        // hd.show();
+        // console.log(hd);
+
+
+
+
+        //super原理分析
+        
+        
+        
+
+        
+        
+
+         
+
+           
+        
+        
+       
+        
+
                 
 
          

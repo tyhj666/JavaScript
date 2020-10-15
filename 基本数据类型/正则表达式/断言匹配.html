@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <!-- 后盾人不断分享视频教程，学习后盾人教程提升编程能力 -->
+        <a href="https://baidu.com">百度</a>
+        <a href="https://yahoo.com">雅虎</a>
+    </main>
+</body>
+<script>
+
+   // ?=是后面是什么    ?!后面不是什么 
+
+    //  let main = document.querySelector('main');
+    //  let reg =/后盾人/g;
+    //  let reg =/后盾人(?=教程)/g;//相当于正则表达式的条件，意思是找到后盾人后面是教程的后盾人
+    //  main.innerHTML = main.innerHTML.replace(reg,`<a href="https://houdunen.com">$&</a>`);
+
+
+
+    //使用断言规范价格
+    // let lessons = `
+    //     js,200元,300次
+    //     php,300.00元,100次
+    //     node,180元,360次
+    // `;
+    // let reg=/(\d+)(.00)?(?=元)/gi;
+    // lessons = lessons.replace(reg,(v,...args) =>{
+    //     // console.log(args);
+    //     args[1] = args[1] || '.00';
+    //     return args.splice(0,2).join("");
+    // });
+    // console.log(lessons);
+
+
+
+    //零宽后行断言   
+    // let  hd = "houdunren789hdcms666";
+    // const reg = /(?<=houdunren)\d+/i;
+    // console.log(hd.match(reg));//789
+    //  const main = document.querySelector('main');
+    //  const reg = /(?<=href=(['"])).+(?=\1)/ig;
+    //  console.log(main.innerHTML.match(reg));
+    //  main.innerHTML = main.innerHTML.replace(reg,"https://www.houdunren.com");
+
+
+
+    let users = `
+      向军电话:12345678901
+      后盾人电话:98745675603
+    `;
+
+    let reg = /(?<=\d{7})\d{4}/gi;
+   users = users.replace(reg, v=>{
+        return '*'.repeat(4)
+    });
+    console.log(users);
+
+
+    const reg = /^(?!.*向军.*)[a-z]{5,6}/i //开头的后面不能包含向军
+    const reg = /(?<!\d+)[a-z]+/i//匹配前面不是数字的项
+    const reg = /https:\/\/([a-z]+)?(?<!oss)\..+?(?=v)/gi
+    
+    
+    
+</script>
+</html>

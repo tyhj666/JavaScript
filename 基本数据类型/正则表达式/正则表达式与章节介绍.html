@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="content">
+        houdunren.com
+    </div> -->
+
+    <!-- <input type="text" name="mail" id="mail">
+    <span></span>
+    <main>
+        <span>houdunwang</span>
+        <span>hdcms.com</span>
+        <span>houdunren.com</span>
+    </main> -->
+
+    <h1>houdunren.com</h1>
+    <h2>hdcms.com</h2>
+    <h1>后盾人</h1>
+    <script>
+    //    let hd = "houdunren2200hdcms9988";  
+    //   let nums = [...hd].filter(a => !Number.isNaN(parseInt(a)));
+    //    console.log(nums);
+    //    console.log(nums.join(""));
+    //    console.log(/\d/g).join("");
+    //    console.log(hd.match(/\d/g).join());
+       
+    
+
+    //字面量创建正则表达式两个斜杠里面放要找的元素，但是不能识别变量
+    //    let hd = "houdunren.com";
+    //    console.log(/u/.test(hd));//检测hd字符串里面是否包含u
+    //    console.log(eval(`/${a}/`).test(hd));//eval是把字符串变成js表达式
+       
+    
+    //使用对象创建正则表达式
+    // let hd = "houdunren.com"
+    // let reg = new RegExp('u','g');//第一个参数是要找的元素，也可以是变量，第二个参数是模式，这个地方g代表全局
+    // reg.test(hd);
+    // let con = prompt("请输入要检查的内容，支持正则");
+    // let reg = new RegExp(con,'g');
+    // let div = document.querySelector('div');
+    // div.innerHTML=div.innerHTML.replace(reg,search => {
+    //     return  `<span style="color:red">${search}</span>`;
+    // });
+    // console.log(con);
+
+
+
+
+    //选择符的使用
+    // let hd = "houdunren";
+    // console.log(/u|@/.test(hd));//表示从hd里面检测是否有u或者@，u和@可以换成是表达式
+    // let tel = "010-9999999";
+    // console.log(/010|020\-\d{7,8}/.test(tel));
+
+
+    //原子表与原子组中的选择符
+    // let reg = /[123456]/;//中括号的意思是匹配里面的任意一个字符
+    // let reg =/(12|34)/; //（12|34）这个表示匹配12，或者34，|两边的元素是一个整体
+    // let hd = "15";
+    // console.log(hd.match(reg));
+
+
+    //正则表达式中的转义
+    // let price = 23.34;
+    // console.log(/\d+/);// \d+代表匹配一个或多个数值,\d表示匹配0-9的数值
+
+    //这个地方的点有多层意思
+       //.代表除了换行以为的任何字符 
+       //.还代表普通的点，这个时候我们需要用/.来转义这个点
+       //字符串里面的\d和\.都将当成普通的字符d和.来对待
+    // console.log(/\d+\.\d/.test(price)); //true
+    // let rge =new RegExp("\d+\.\d+");//下面之所以是false，是因为字符串里面的\d和\.都将变成普通的d和普通的.，解决方法是再加一个\
+    // let rge =new RegExp("\\d+\\.\d+");//true
+    // console.log(reg.test(price));//false
+    // let url = 'https://www.houdunren.com';
+    // console.log(/https?:\/\/\w+\.\w+\.\w+/.test(url));//这个地方的？表示可以有0个或多个s
+    
+    
+
+
+    //字符边界的约束^和$
+    // let hd = "adf3dsfds";
+    // console.log(/^\d$/.test(hd));//^表示匹配开头的边界,$表示结束的边界
+
+    // this.value.match(/[a-z]{3,6}/)//[a-z]表示匹配字符，{3，6}表示3-6位，但是超过6为的字符串照样也是正确的
+    // this.value.match(/^[a-z]{3,6}$/)//这种写法表示字符串必须是3-6位，即从起始到结束的位数是3-6为
+    
+
+
+
+    //数值与空白元字符
+    
+    //元字符
+    // let hd = "houdunren 2010";
+    // console.log(hd.match(/\d\d\d/));//匹配2010
+    // console.log(hd.match(/\d/));//只匹配一个数值，后面的数值将匹配不到
+    // console.log(hd.match(/\d+/));//这种写法表示匹配一个或多个数值
+    // console.log(hd.match(/\d/g));//后面加g表示匹配所有的数值
+
+    // let hd =`张三:010-99999999,李四:020-88888888`;
+    // console.log(hd.match(/\d{3}-\d{7,8}/));//这种写法只检测到第一个，如果两个都匹配到，需要写/g
+    
+
+    // \D代表匹配除了数字的字符  
+    //[-\d:]这个表示[]里面的元素都匹配到
+    //[^-\d:]这个表示除了-\d:这些[]里面的字符
+    //[^-\d:]+这个表示除了-\d:这些[]里面的字符,后面的+表示一个或多个
+    
+    //\s表示匹配空白，包括空格和换行  
+    //\S表示除了空白，要匹配的字符串里面只要有不少空格或换行的字符，则返回true
+
+
+    //w与W元字符  
+    //\w(小写)表示匹配字母，数字，下划线
+    // let hd = "houdunren2020_@@";
+    // console.log(hd.match(/\w+/));
+    // let email = "2300071698@qq.com";
+    // console.log(email.match(/\w@\w/));//这种写法只输出8@q
+    // console.log(email.match(/\w+@\w+/));//这种写法会匹配到我们想要的
+    // console.log(email.match(/\w+@\w+\.\w+/));//这种写法会匹配到我们想要的
+    // console.log(email.match(/^\w+@\w+\.\w+$/));//强制限制前面和后面的数据格式
+
+
+    //W(大写)除了数字，字母，下划线
+    // console.log('hdcms@'.match(/\w/));
+    ///^[a-z]\w{4,9}$/
+
+
+
+
+    //点元字符的使用  .默认匹配一个字符   .+匹配多个 .匹配的是除了换行符以为的数据，当碰到换行符的时候就停止了
+    //\s是单行匹配
+    //空格,这个地方的\s是匹配空格
+    // let tel = '010 - 99999999';
+    // console.log(tel.match(/\d+\s-\s\d{8}/));
+
+
+
+    //匹配所有字符
+    // let xj = 'ab';
+    // console.log(xj.match(/[abcdef]/));//
+    // let hd =`
+    //  <span>
+    //      houdunren @@@@@
+    //      hdcms
+    // </span>
+    // `;
+    // console.log(hd.match(/<span>[\d\D]+<\/span>/));
+
+
+
+    
+    //i与g模式修正符，可以一块使用
+    // let hd = "houdunren";
+    // console.log(hd.match(/u/i));//后面加i是不区分大小写
+    // console.log(hd.match(/u/g));//后面加g是从头匹配到尾
+
+
+
+
+    //m多行匹配修正符实例
+//     let hd = `
+//       #1 js,200元 #
+//       #2 php,300元 #
+//       #9 houdunren.com # 后盾人
+//       #3 node.js,100元 #
+//     `;
+    
+//     // console.log(hd.match(/\s*#\d+\s+.+\s+#\s+/g));
+//     // console.log(hd.match(/^\s*#\d+\s+.+\s+#$/gm));//后面的m是每一行单独处理的意思因为第三行不是以#结束的，所以不会匹配到
+//  let lessons =   hd.match(/^\s*#\d+\s+.+\s+#$/gm).map(v =>{
+//         // console.log(v);
+//         v.replace(/\s*#\d+\s*/,"").replace(/#/,"");
+//         [name, price] = v.split(",");
+//         return {name, price};
+//     });
+//     console.log(lessons);
+
+
+
+
+
+//汉字与字符属性
+
+    // let hd = "houdunren2010";
+    // console.log(hd.match(/\p{L}/g));
+    // console.log(hd.match(/\p{L}/gu));//后面这个u是只匹配字母，不匹配数值
+
+    
+    //匹配标点符号
+    // let hd = "houdunren2010.不断发布教程，加油！"
+    // // console.log(hd.match(/\p{P}/gu));//{P(大写)}用来只匹配标点符号
+
+    // // //doc.houndunren.com
+    // // //字符属性，Script是语言系统,简称sc
+    // // console.log(hd.match(/\p{sc=Han}/gu));
+
+
+    // let reg = /\w/g;
+    // console.log(reg.lastIndex);//lastIndex必须在全局模式下使用，不然永远是0
+    // while((res =reg.exec(hd))){
+    //     console.log(res);
+        
+    // }
+
+
+
+
+
+    //y g模式
+    // let hd = "udunren";
+    // let reg = /u/g;//这种写法会跳过不是u的元素
+    // console.log(reg.exec(hd));
+    // console.log(reg.lastIndex);
+
+    // let reg = /u/y; //这种写法如果后面的元素不是u，就会停止查找，lastIndex的值变为0
+    
+    
+    //   let hd =`后盾人QQ群:11111111,99999999,88888888
+    //   后盾人不断分享视频教程，后盾人网址是houdunren.com`;
+    //   reg = /\d+,?/y;//因为是y模式，所以这个地方的hd不满足reg.exec(hd),所以匹配不到，返回null,需要把reg.lastIndex的值初始化为符合reg的位置
+
+    //   let reg = /(\d+),?/y;//(\d+)用了原子组的写法
+    //   reg .lastIndex = 7;
+    //   let qq = [];
+    //   while((res = reg.exec(hd))) qq.push(res[1]);
+    //      console.log(qq);
+
+
+
+
+    //原子表的基本使用
+    // let hd = "houdunren";
+    // console.log(hd.match(/ue/g));
+    // console.log(hd.match(/[ue]/g));
+    // let tel = '2020-02-23';
+    // let reg = /^\d{4}-\d{2}-\d{2}$/;//这种写法只能匹配到2020-02-23，不能匹配到2020/02/23这种格式
+    // let reg = /^\d{4}[-\/]\d{2}[-\/]\d{2}$/;//这种写法2020-02/23这种写法也可以匹配到，这种有问题，需要用原子组的写法来解决
+    // let reg = /^\d{4}([-V])\d{2}\1\d{2}$/
+    // console.log(tel.match(reg));
+
+
+
+
+    //区间匹配
+    // let hd = '2010';
+    // console.log(hd.match(/[0-9]+/g));//这个地方不能写[9-0]
+    // console.log(hd.match(/\d+/g));
+
+    // let hd = "houdunren";
+    // console.log(hd.match(/[a-z]/g));//这种原子表的用法，一次只能匹配到一个
+    // console.log(hd.match(/[a-z]+/));
+
+
+    // let input = document.querySelector(`[nmae="username"]`);
+    // input.addEventListener("keyup",function(){
+    //       this.value.match(/^[a-z]\w{3,6}$/i)//后面的i表示不区分大小写
+    // });
+
+
+
+
+
+    //排除匹配
+    // let hd = "houdunren.com";
+    // console.log(hd.match(/[ue]/gi));//查找u或e
+    // console.log(hd.match(/[^ue]/gi));//查找除了u或e的元素
+
+    // let hd = `张三:010-99999999,李四:020-888888`;
+    // console.log(hd.match(/[^\d:\-,]+/g));
+    // console.log(hd.match(/\p{sc=Han}+/gu));
+
+
+
+
+    //原子表字符不解析
+    //[]表示原子表    （）表示原子组
+    // let hd = "(houdunren).+";
+    // console.log(hd.match(/[]/gi));//.和+还有()放在原子表里面就代表普通的字符
+    
+
+
+
+    //使用原子表匹配所有字符
+    // let hd = `
+    //   houdunren
+    //   hdcms
+    // `;
+    // console.log(hd.match(/.+/gs));//.是匹配除了换行符以外的所有字符，s是忽略换行符
+    //[\s\S]把\s写在原子表里面代表空白，包括换行，空格，\S代表除了空白
+    //[\s\S] = [\d\D] 代表所有内容
+    // console.log(hd.match(/[\s\S]+/)[0]);
+
+
+
+
+
+   //认识原子组   （）用括号括起来的部分叫做原子组
+//    let hd = `
+//      <h1>
+//        houdunren
+//      </h1>
+//      <h2>hdcms</h2>
+//    `;
+//    let reg = /<(h[1-6])>[\s\S]*<\/\1>/gi;
+//    let reg1 = /<(h[1-6])>[\s\S]*<\/\1>/i;
+//    console.log(hd.match(reg));
+//    console.log(hd.match(reg1));
+
+
+
+//邮箱验证中原子组的使用
+// let mail =document.querySelector(`[name="mail"]`).addEventListener("keyup",function(){
+//     let reg = /^[\w-]+@([\w-]+\.)+(com|org|cc|cn|net)$/i;
+//     console.log(reg.test(this.value));
+//     document.querySelector("span").innerHTML= reg.test(this.value) ? "正确" : "错误"
+    
+// });
+
+   //let reg = /^[\w-]+@[\w-]+\.com|org$/i   //这种写法中,|前面的^[\w-]+@[\w-]+\.com是一个整体，后面是一个整体
+   //let reg = /^[\w-]+@[\w-]+\.(com|org|cc|cn|net)$/i //这种写法23905@hdcms.com.cn这种邮箱的写法匹配不成功，原因是@后面只能匹配到一个.
+//    let reg = /^[\w-]+@([\w-]+\.)+(com|org|cc|cn|net)$/i
+//     console.log(mail.match(reg));
+
+
+
+
+
+//原子组引用完成替换操作
+
+// let hd = `
+//     <h1>houdunren</h1>
+//     <span>后盾人</span>
+//     <h2>hdcms</h2>
+// `;
+
+// let reg =/<(h[1-6])>([\s\S]+)<\/\1>/ig;
+// console.log(hd.match(reg));
+// hd.replace(reg,(p0, p1, p2) => {//这个地方的p0,p1,p2分别代表第一个原子组，第二个原子组，第三个原子组
+//     console.log(p1,p1,p2);
+//     return `<P>${p2}</p>`;
+// });
+
+// hd.replace(reg,`$2`)//这个地方的$2是取第二个原子组
+// console.log(hd.replace(reg,`<p>$2</p>`));
+
+
+
+
+
+//嵌套分组与不记录组
+// let hd = `https://www.houdunren.com`;
+// let reg = /https?:\/\/(\w+\.\w+\.(com|org|cn))/i;
+// //let reg = /https?:\/\/(\w+\.\w+\.(?:com|org|cn))/i;//这是一个嵌套原子组，第二个前面加?:的目的是忽略掉这个原子组，就不用再做记录了
+// //let reg = /https?:\/\/(?:(\w+\.)?\w+\.(?:com|org|cn))/i;//这是一个嵌套原子组，第二个前面加?:的目的是忽略掉这个原子组，就不用再做记录了
+// console.log(hd.match(reg));
+// console.dir(hd.match(reg));
+
+
+
+// let hd = `
+// https://www.houdunren.com
+// http://houdunwang.com
+// https://hdcms.com
+// `;
+// let reg = /https?:\/\/((?:\w+\.)?\w+\.(?:com|org|cn))/ig;//这是一个嵌套原子组，第二个前面加?:的目的是忽略掉这个原子组，就不用再做记录了
+// console.log(hd.match(reg));
+// console.dir(reg.exec(hd));
+// console.log(reg.lastIndex);
+// console.dir(reg.exec(hd));
+// console.log(reg.lastIndex);
+
+// let urls = [];
+// while ((res = reg.exec(hd))){
+//     urls.push(res[1]);
+// }
+// console.log(urls);
+
+
+
+
+
+//多种重复匹配基本使用
+// let hd = "hdddd"
+// console.log(hd.match(/hd+/));//这个地方的+号只对前面的一个字符起作用
+// console.log(hd.match(/hd*/));//这个地方的*是0个或多个
+// console.log(hd.match(/hd{2}/));//这个地方表示匹配2个d
+// console.log(hd.match(/hd{1,3}/));//这个地方表示匹配1到3个d
+// console.log(hd.match(/hd{1,}/));//这个地方表示匹配1到无数个
+
+// console.log(hd.match(/hd?/));//这个地方表示匹配0个或1个
+
+
+//重复匹配对原子组影响与电话号正则
+// let hd = "hdhdhdhd";
+// console.log(hd.match(/(hd)+/g));//这个地方+影响的整个原子组，并不是单独的一个字符
+
+
+
+
+
+//批量使用正则完成密码验证
+//  const input = document.querySelector(`[name="mail"]`);
+//  input.addEventListener('keyup',e => {
+//      const value = e.target.value;
+//      const regs = [
+//          /^[a-z0-9]{5,10}$/i, //以字母或数字开头
+//          /[A-Z]/
+//      ];
+//     let state = regs.every( a => a.test(value)); //every是结果全部都为真的时候，才返回真
+//      console.log(state ? "正确" :"密码错误");
+//  })
+
+
+ //静止贪婪
+//  let hd = "hddddd";
+//  console.log(hd.match(/hd+?/));//后面加上一个？就会输出匹配最少的个数
+//  console.log(hd.match(/hd{2,100}?/));//后面加上一个？就会输出匹配最少的个数
+ 
+
+
+
+ //标签替换的静止贪婪使用
+// const main = document.querySelector('main');
+// const reg = /<span>([\s\S]+?)<\/span>/gi;
+// main.innerHTML = main.innerHTML.replace(reg, (v,p1) =>{
+//      return `<h4 style="color:red">后盾人-${p1}</h4>`;
+// });
+
+
+
+
+//使用matchAll使用全局匹配
+// let reg = /<(h[1-6])>([\s\S]+?)<\/\1>/ig;
+// const body = document.body;
+// // console.dir(body.innerHTML.match(reg));
+// const hd =  body.innerHTML.matchAll(reg);  //返回的是一个迭代器对象
+// let contents = [];
+// for (const value of hd) {
+//     // console.dir(value);
+//     contents.push(value[2]);
+// }
+// console.table(contents);
+
+
+
+
+//使用exec完成全局匹配
+// let hd = 'houdunren';
+// let reg =/u/gi;
+// let result = [];
+// while((res=res.exec(hd))){
+//     result.push(res);
+// }
+// console.log(result);
+
+
+
+
+//字符串正则方法search与match
+let hd = "houdunren.com";
+console.log(hd.search(/u/));
+hd.match(/u/);
+
+
+//$符在正则替换中的使用
+// let hd = "=后盾人=";
+// console.log(hd.replace(/后盾人/,"$&"));//这里面的$&是获取匹配到的东西
+// console.log(hd.replace(/后盾人/,"$`"));//这里面的$`是获取匹配到的东西的前面的一个字符
+// console.log(hd.replace(/后盾人/,"$'"));//这里面的$'（单引号）是获取匹配到的东西的后面的一个字符
+
+
+
+
+
+//原子组别名
+// let hd = `
+//      <h1>houdunren</h1>
+//      <span>后盾人</span>
+//      <h2>hdcms</h2>
+// `;
+// const reg = /<(h[1-6])>(.*?)<\/\1>/i;
+// const reg = /<(h[1-6])>(?<con>.*?)<\/\1>/i;//这个地方?<con>就是给原子组起了一个别名
+// console.log(hd.replace(reg,"<h4>$2</h4>"));
+// console.log(hd.replace(reg,"<h4>$<con></h4>"));
+
+
+
+//原子组别名优化
+//原子组别名
+let hd = `
+     <h1>houdunren</h1>
+     <span>后盾人</span>
+     <h2>hdcms</h2>
+`;
+const reg = /<(h[1-6])>(.*?)<\/\1>/i;
+const reg = /<(h[1-6])>(?<con>.*?)<\/\1>/i;//这个地方?<con>就是给原子组起了一个别名
+console.log(hd.replace(reg,"<h4>$2</h4>"));
+console.log(hd.replace(reg,"<h4>$<con></h4>"));
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+
+
+   
+          
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>

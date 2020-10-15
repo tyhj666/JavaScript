@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+      //把不同的功能拆分成独立的文件，把部分功能提供给外部使用
+      //AMS require.js  CMD sea.jsc
+
+      // let module = (function(){
+      //   const moduleList = {};
+
+      //   //第一次参数是模块的名称，第二个参数是依赖的模块，第三个参数是模块的动作
+      //   //声明一个模块
+      //   function define(name, modules, action){
+      //     moudles.map((m,i) =>{
+      //      modules[i] = moduleLIst[m]
+      //     } )
+      //     // console.log("houdunren");把模块行为的执行结果放到容器里面
+      //     moduleList[name] = action.apply(null,modules);
+      //   }
+      //   return {define};
+      // })();
+
+      // //定义一个hd模块
+      // module.define('hd',[],function(){
+      //     return {
+      //       first(arr){
+      //         return arr[0]
+      //       },
+      //       max(arr){
+      //         return arr.sort((a,b) => b-a)[0];
+      //       }
+      //     }
+      // });
+
+      // //定义一个课程管理模块,并且依赖hd模块
+      // module.define("lesson",['hd'],function(hd){
+      //      let data =[
+      //        {name:"js", price:199},
+      //        {name:"mysql", price:78}
+      //      ]
+      //      hd.max(data,'price')
+      // })
+
+
+
+        
+
+     
+
+      //模块的基本使用
+      import {title} from './hd.js';
+      console.log(title);
+      
+  
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

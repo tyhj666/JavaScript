@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <main>
+        <a style="color:red" href="http://www.hdcms.com">开源系统</a>
+        <a href="http://houdunren.com">后盾人</a>
+        <a href="http://yaoyao.com">雅虎</a>
+        <h4>http://www.hdcms.com</h4>
+    </main> -->
+
+    <main>
+        
+    </main>
+</body>
+<script>
+    const main = document.querySelector('body main');
+    const reg = /(<a.*href=["'])(http)(:\/\/)(www\.)?(hdcms|houdunren|yaoyao)/ig
+    // main.innerHTML = main.innerHTML.replace(reg, (v,p1,p2,p3) =>{
+    main.innerHTML = main.innerHTML.replace(reg, (v, ...args) =>{
+        //   console.log(v); //表示匹配到的内容
+        //   console.log(p1);//表示第一个组
+        //   console.log(p2);//表示第二个组
+        //   console.log(p3);// 表示第三个组
+        //   console.dir(args);
+        console.log(reg);
+        
+        args[1] += 's';
+        args[3] = args[3] || 'www.'
+        // console.log(args.splice(0, 5).join(""));
+        return args.splice(0, 5).join("");
+        
+          
+    })
+</script>
+</html>
