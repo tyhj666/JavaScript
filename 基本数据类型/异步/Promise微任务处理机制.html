@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //pending  准备阶段
+        //resolved成功状态
+        new Promise((resolve, reject) =>{
+            // resolve("成功状态");  //只有这句代码执行了才可以将.then里面的语句添加到微任务里面
+            reject("失败状态")//同步任务
+        }).then(
+            value =>{ 
+                console.log("成功");//微任务
+                
+            },
+            reason =>{
+                console.log("失败");//微任务
+                
+            }
+        )
+
+//宏任务和微任务执行顺序   
+      //1.同步任务级别最高，在promise构造方法里面也是同步任务
+      //2.是微任务，即.then里面的代码
+      //3.执行的是宏任务
+
+//必须把主线程中的任务执行完了之后再执行微任务，然后再执行宏任务
+      let promise = new Promise(
+          resolve =>{
+            setTimeout(() =>{
+                resolve();
+                console.log("setTimeout");
+                
+            },0);
+            console.log("pormise");
+         }).then(value =>console.log("成功");
+         console.log("后盾人");
+         
+
+        </script>
+</body>
+</html>
