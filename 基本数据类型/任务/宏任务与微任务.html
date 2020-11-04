@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   //JS是单线程的，同一时间只能干一件事，把所有要干的活全部放到任务队列里面
+   //同步代码会立刻放到主线程里面执行，异步代码会放到任务队里里面
+   //宏任务队列，微任务队列，微任务队列的优先级高于宏任务队列的优先级
+   //其中Promise是微任务队列，setTimeout是宏任务队列
+
+
+
+
+   //定时器的任务编排，js先执行同步任务，构造器是同步任务，立刻执行，后才执行异步任务
+   //异步任务分为微任务和宏任务，微任务的优先级高于宏任务的优先级
+
+   //任务是一个一个执行的，不会同步执行
+
+
+   //任务拆分成多个子任务
+   //这个例子全部是同步代码，所以上面的执行完之后才可以执行输出后盾人
+   function hd(){
+       for(let i=0; i< num; i++){
+           count += num--;
+       }
+       console.log(count);
+   }
+   let num = 987654321;
+   let count =0;
+   hd();
+   console.log("后盾人");
+   
+   //当业务逻辑影像到同步代码的是时候，可以把他改成异步的微任务或者宏观任务
+
+</script>
+</html>
